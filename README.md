@@ -88,7 +88,7 @@ df.write.parquet("s3://bucket/path/to/output_data.parquet")
 # 1-3. SageMaker Compute Instance type
 > https://aws.amazon.com/jp/ec2/instance-types/
 
-| Instance Familiy | |
+| Instance Familiy | Features |
 | --- | --- |
 | **- T instance type** | An instance of general-purpose burstable performance<br>  汎用のバースト可能なパフォーマンスのインスタンス。<br> |
 | **- M instance type** | A general-purpose instance with a good balance of compute, memory, and network bandwidth<br>  計算、メモリ、ネットワーク帯域幅のバランスがよい汎用的なインスタンス。<br> |
