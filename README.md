@@ -10,7 +10,7 @@ Business success is closely tied to the ability of companies to quickly derive v
 
 ![data-diagram.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/data-diagram.png)
 
-# 1-2. Amazon Athena, Amazon Redshift, Amazon EMR (Data Analytics)
+# 1-2. Amazon Athena, Amazon Redshift, Amazon EMR (Data Transformation and Analytics)
 Before starting machine learning modeling, perform ad hoc exploration and prototyping to understand the data schema and data quality for solving the problem you are facing.<br><br>
 機械学習のモデリングを始める前に、直面している課題解決に対するデータスキーマとデータ品質を理解するために、アドホックな探索やプロトタイピングを行う。
 
