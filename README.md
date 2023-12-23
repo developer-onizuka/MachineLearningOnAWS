@@ -32,6 +32,7 @@ Amazon SageMaker processing jobs can run Python scripts on container images usin
 3,Banana,12.99
 4,Lemon,NaN,
 ```
+- Load the CSV file into DataFrame in Apache Spark
 ```
 df = spark.read.option('header','false').format("csv").load("s3://bucket/path/to/input_data.csv")
 df.show()
@@ -46,6 +47,7 @@ df.show()
 |  4| Lemon|NaN  |
 +---+------+-----+
 ```
+- Remove null values ​​as rows
 ```
 df_dropped = df.dropna()
 df_dropped.show()
@@ -59,6 +61,7 @@ df_dropped.show()
 |  3|Banana|12.99|
 +---+------+-----+
 ```
+- Fill in the blanks with the average value
 ```
 df.fillna(df.mean()))
 df.show()
@@ -73,11 +76,11 @@ df.show()
 |  4| Lemon|11.99| <--
 +---+------+-----+
 ```
-- CSV
+- Write the DataFrame to CSV File
 ```
 df.write.csv("s3://bucket/path/to/output_data.csv")
 ```
-- Parquet
+- Write the DataFrame to Parquet File
 ```
 df.write.parquet("s3://bucket/path/to/output_data.parquet")
 ```
