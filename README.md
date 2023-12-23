@@ -86,6 +86,8 @@ df.write.parquet("s3://bucket/path/to/output_data.parquet")
 ```
 
 # 1-3. SageMaker Compute Instance type
+> https://aws.amazon.com/jp/ec2/instance-types/
+
 - T instance type
 - M instance type
 - C instance type
