@@ -24,8 +24,16 @@ Data, especially datasets spanning multiple years, is never perfect. Data qualit
 Amazon SageMaker processing jobs can run Python scripts on container images using familiar open sources such as Pandas, Scikit-learn, Apache Spark, and XGboost.<br>
 そこで、Amazon SageMaker Processing jobは、Pandas, Scikit-learnやApache Spark、XGboostなどの使い慣れたオープンソースを使って、Pythonスクリプトをコンテナイメージ上で実行することができる。<br>
 
+# Example using Pandas in Apache Spark
 ```
-df = spark.read.option('header','false').format("csv").load("s3://bucket/path/to/input_data")
+%% cat input_data.csv
+1,Apple,10.99
+2,Orange,11.99
+3,Banana,12.99
+4,Lemon,NaN,
+```
+```
+df = spark.read.option('header','false').format("csv").load("s3://bucket/path/to/input_data.csv")
 df.show()
 ```
 ```
@@ -67,9 +75,9 @@ df.show()
 ```
 - CSV
 ```
-df.write.csv("s3://bucket/path/to/output_data")
+df.write.csv("s3://bucket/path/to/output_data.csv")
 ```
 - Parquet
 ```
-df.write.parquet("s3://bucket/path/to/output_data")
+df.write.parquet("s3://bucket/path/to/output_data.parquet")
 ```
