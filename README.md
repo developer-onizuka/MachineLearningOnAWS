@@ -25,6 +25,51 @@ Amazon SageMaker processing jobs can run Python scripts on container images usin
 そこで、Amazon SageMaker Processing jobは、Pandas, Scikit-learnやApache Spark、XGboostなどの使い慣れたオープンソースを使って、Pythonスクリプトをコンテナイメージ上で実行することができる。<br>
 
 ```
-df = spark.read.format("csv").load("s3://s3path")
+df = spark.read.option('header','false').format("csv").load("s3://bucket/path/to/input_data")
+df.show()
+```
+```
++---+------+-----+
+|_c0|   _c1|  _c2|
++---+------+-----+
+|  1| Apple|10.99|
+|  2|Orange|11.99|
+|  3|Banana|12.99|
+|  4| Lemon|NaN  |
++---+------+-----+
+```
+```
 df_dropped = df.dropna()
+df_dropped.show()
+```
+```
++---+------+-----+
+|_c0|   _c1|  _c2|
++---+------+-----+
+|  1| Apple|10.99|
+|  2|Orange|11.99|
+|  3|Banana|12.99|
++---+------+-----+
+```
+```
+df.fillna(df.mean()))
+df.show()
+```
+```
++---+------+-----+
+|_c0|   _c1|  _c2|
++---+------+-----+
+|  1| Apple|10.99|
+|  2|Orange|11.99|
+|  3|Banana|12.99|
+|  4| Lemon|11.99| <--
++---+------+-----+
+```
+- CSV
+```
+df.write.csv("s3://bucket/path/to/output_data")
+```
+- Parquet
+```
+df.write.parquet("s3://bucket/path/to/output_data")
 ```
