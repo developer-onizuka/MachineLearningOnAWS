@@ -30,7 +30,7 @@ Amazon SageMaker processing jobs can run Python scripts on container images usin
 1,Apple,10.99
 2,Orange,11.99
 3,Banana,12.99
-4,Lemon,NaN,
+4,Lemon,NaN
 ```
 - Load the CSV file into DataFrame in Apache Spark
 ```
