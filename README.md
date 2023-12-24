@@ -111,7 +111,9 @@ Imputing - fills in missing values for categorical attributes by identifying dat
 ![imputing.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/imputing.png)
 
 # 2-4. SageMaker Processing Job (Feature Engineering)
-
+Run the containerized Scikit-learn execution environment with SageMaker Processing Job and convert text to BERT embedding (vectorization).<br>
+コンテナ化されたScikit-learnの実行環境をSageMaker Processing Jobで実行し、テキストをBERT埋め込み(ベクトル化)に変換。<br>
+![prepare_dataset_bert.png](https://raw.githubusercontent.com/oreilly-japan/data-science-on-aws-jp/7c1ea12f23725d5dfcc2db989a62bccbcd044340/workshop/00_quickstart/img/prepare_dataset_bert.png)
 
 
 # 3. Model Train and Tuning
