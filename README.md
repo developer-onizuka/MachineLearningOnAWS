@@ -4,13 +4,14 @@
 
 ![WorkFlow.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/WorkFlow.drawio.png)
 
-# 1-1. Amazon S3 (Ingest Data)
+# 2. Data Preparation
+# 2-1. Amazon S3 (Ingest Data)
 Business success is closely tied to the ability of companies to quickly derive value from their data. Therefore, they are moving to highly scalable, available, secure, and flexible data stores, which they call data lakes.<br>
 ビジネスの成功は企業がデータから素早く価値を引き出せるかどうかと密接に関係している。そのため、拡張性、可用性、安全性、柔軟性に優れたデータストアに移行しており、これをデータレイクと呼んでいる。
 
 ![data-diagram.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/data-diagram.png)
 
-# 1-2. Amazon Athena, Amazon Redshift, Amazon EMR (Data Transformation and Analytics)
+# 2-2. Amazon Athena, Amazon Redshift, Amazon EMR (Data Transformation and Analytics)
 Before starting machine learning modeling, perform ad hoc exploration and prototyping to understand the data schema and data quality for solving the problem you are facing.<br>
 機械学習のモデリングを始める前に、直面している課題解決に対するデータスキーマとデータ品質を理解するために、アドホックな探索やプロトタイピングを行う。
 
@@ -24,7 +25,7 @@ Data, especially datasets spanning multiple years, is never perfect. Data qualit
 Amazon SageMaker processing jobs can run Python scripts on container images using familiar open sources such as Pandas, Scikit-learn, Apache Spark, TensorFlow and XGboost.<br>
 そこで、Amazon SageMaker Processing jobは、Pandas, Scikit-learnやApache Spark、TensorFlow、XGboostなどの使い慣れたオープンソースを使って、Pythonスクリプトをコンテナイメージ上で実行することができる。<br>
 
-# 1-2-1. Example using Pandas in Apache Spark
+# 2-2-1. Example using Pandas in Apache Spark
 ```
 %% cat input_data.csv
 1,Apple,10.99
@@ -85,7 +86,7 @@ df.write.csv("s3://bucket/path/to/output_data.csv")
 df.write.parquet("s3://bucket/path/to/output_data.parquet")
 ```
 
-# 1-2-2. SageMaker Compute Instance type
+# 2-2-2. SageMaker Compute Instance type
 > https://aws.amazon.com/jp/ec2/instance-types/
 
 | Instance Familiy | Features |
@@ -98,7 +99,7 @@ df.write.parquet("s3://bucket/path/to/output_data.parquet")
 | **G instance type** | Instances ideal for small, cost-sensitive learning and inference workloads<br>  コスト重視の小規模な学習や推論ワークロードに最適なインスタンス。<br> |
 
 
-# 1-3. AWS Glue DataBrew (a Low code and Visual Data Preparation Tool)
+# 2-3. AWS Glue DataBrew (a Low code and Visual Data Preparation Tool)
 [AWS Glue DataBrew](https://docs.aws.amazon.com/databrew/latest/dg/what-is.html) is a visual data preparation tool that makes it easier for data analysts and data scientists to clean and normalize data to prepare it for analytics and machine learning (ML). <br>
 組み込み変換機能でデータセットの以上を検出し、異常データを変換(無効な値や欠損値を修正)。列の相関性を可視化。<br>
 ![overview.png](https://docs.aws.amazon.com/images/databrew/latest/dg/images/databrew-overview-diagram.png)
@@ -109,3 +110,12 @@ Column statistics – On this tab, you can find detailed statistics about each c
 Imputing - fills in missing values for categorical attributes by identifying data patterns in the input dataset. It helps reduce the data quality issues due to incomplete / non-available data.<br>
 ![imputing.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/imputing.png)
 
+# 2-4. SageMaker Processing Job (Feature Engineering)
+
+
+
+# 3. Model Train and Tuning
+
+# 4. Deploy and Monitoring
+
+)
