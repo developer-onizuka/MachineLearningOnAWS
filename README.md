@@ -86,7 +86,7 @@ df.write.parquet("s3://bucket/path/to/output_data.parquet")
 ```
 
 # 1-2-1. AWS Glue DataBrew (A Visual Data Preparation Tool)
-AWS Glue DataBrew is a visual data preparation tool that makes it easier for data analysts and data scientists to clean and normalize data to prepare it for analytics and machine learning (ML). 
+[AWS Glue DataBrew](https://docs.aws.amazon.com/databrew/latest/dg/what-is.html) is a visual data preparation tool that makes it easier for data analysts and data scientists to clean and normalize data to prepare it for analytics and machine learning (ML). 
 ![overview.png](https://docs.aws.amazon.com/images/databrew/latest/dg/images/databrew-overview-diagram.png)
 
 # 1-3. SageMaker Compute Instance type
