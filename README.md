@@ -117,11 +117,8 @@ Run the containerized Scikit-learn execution environment with SageMaker Processi
 
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Queen.png" width="320">
 
-
-
 >https://github.com/oreilly-japan/data-science-on-aws-jp <br>
->![prepare_dataset_bert.png](https://raw.githubusercontent.com/oreilly-japan/data-science-on-aws-jp/7c1ea12f23725d5dfcc2db989a62bccbcd044340/workshop/00_quickstart/img/prepare_dataset_bert.png)
-
+><img src="https://raw.githubusercontent.com/oreilly-japan/data-science-on-aws-jp/7c1ea12f23725d5dfcc2db989a62bccbcd044340/workshop/00_quickstart/img/prepare_dataset_bert.png" width="720">
 
 > https://sagemaker.readthedocs.io/en/v2.5.5/amazon_sagemaker_processing.html<br>
 
