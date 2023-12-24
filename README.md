@@ -147,6 +147,10 @@ sklearn_processor.run(
 )
 ```
 
+File locations of containers running in SageMaker are mapped to S3.<br>
+SageMakerで実行されるコンテナのファイルロケーションはS3にマッピングされる。
+>![SageMakerFileLocation.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/SageMakerFileLocation.drawio.png)
+
 
 # 3. Model Train and Tuning
 
