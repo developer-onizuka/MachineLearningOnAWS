@@ -1,25 +1,25 @@
 # MachineLearningOnAWS
 
 # 1. Pipeline of Data Science and Workflow
-
+>
 ![WorkFlow.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/WorkFlow.drawio.png)
 
 # 2. Data Preparation
 # 2-1. Amazon S3 (Ingest Data)
 Business success is closely tied to the ability of companies to quickly derive value from their data. Therefore, they are moving to highly scalable, available, secure, and flexible data stores, which they call data lakes.<br>
 ビジネスの成功は企業がデータから素早く価値を引き出せるかどうかと密接に関係している。そのため、拡張性、可用性、安全性、柔軟性に優れたデータストアに移行しており、これをデータレイクと呼んでいる。
-
+>
 ![data-diagram.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/data-diagram.png)
 
 # 2-2. Amazon Athena, Amazon Redshift, Amazon EMR (Data Transformation and Analytics)
 Before starting machine learning modeling, perform ad hoc exploration and prototyping to understand the data schema and data quality for solving the problem you are facing.<br>
 機械学習のモデリングを始める前に、直面している課題解決に対するデータスキーマとデータ品質を理解するために、アドホックな探索やプロトタイピングを行う。
-
+>
 ![SparkAndDeequ](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SparkAndDeequ.png)
 
 Data, especially datasets spanning multiple years, is never perfect. Data quality tends to degrade over time as applications are updated or retired. Data quality is not necessarily a priority for upstream application teams, so downstream data engineering teams must deal with bad or missing data.<br>
 データは決して完璧ではなく、数年にも及ぶようなデータセットはなおさらである。アプリケーションの新機能や改廃に伴い、データの品質は時間とともに低下していく傾向にある。上流のアプリケーションチームにとってデータ品質は必ずしも優先事項ではないため、下流のデータエンジニアリングチームが不良データや欠損データを処理する必要がある。
-
+>
 ![Processing-1.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Processing-1.png)
 
 Amazon SageMaker processing jobs can run Python scripts on container images using familiar open sources such as Pandas, Scikit-learn, Apache Spark, TensorFlow and XGboost.<br>
@@ -102,18 +102,22 @@ df.write.parquet("s3://bucket/path/to/output_data.parquet")
 # 2-3. AWS Glue DataBrew (a Low code and Visual Data Preparation Tool)
 [AWS Glue DataBrew](https://docs.aws.amazon.com/databrew/latest/dg/what-is.html) is a visual data preparation tool that makes it easier for data analysts and data scientists to clean and normalize data to prepare it for analytics and machine learning (ML). <br>
 組み込み変換機能でデータセットの以上を検出し、異常データを変換(無効な値や欠損値を修正)。列の相関性を可視化。<br>
+>
 ![overview.png](https://docs.aws.amazon.com/images/databrew/latest/dg/images/databrew-overview-diagram.png)
 
 Column statistics – On this tab, you can find detailed statistics about each column in your dataset, as shown following.
+>
 ![dataset-column-stats.png](https://docs.aws.amazon.com/images/databrew/latest/dg/images/dataset-column-stats.png)
 
 Imputing - fills in missing values for categorical attributes by identifying data patterns in the input dataset. It helps reduce the data quality issues due to incomplete / non-available data.<br>
+>
 ![imputing.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/imputing.png)
 
 # 2-4. SageMaker Processing Job (Feature Engineering)
 Run the containerized Scikit-learn execution environment with SageMaker Processing Job and convert text to BERT embedding (vectorization).<br>
 コンテナ化されたScikit-learnの実行環境をSageMaker Processing Jobで実行し、テキストをBERT埋め込み(ベクトル化)に変換。<br>
 >https://github.com/oreilly-japan/data-science-on-aws-jp <br>
+>
 ![prepare_dataset_bert.png](https://raw.githubusercontent.com/oreilly-japan/data-science-on-aws-jp/7c1ea12f23725d5dfcc2db989a62bccbcd044340/workshop/00_quickstart/img/prepare_dataset_bert.png)
 
 
