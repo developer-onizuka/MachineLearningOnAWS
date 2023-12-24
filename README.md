@@ -113,6 +113,35 @@ Run the containerized Scikit-learn execution environment with SageMaker Processi
 >![prepare_dataset_bert.png](https://raw.githubusercontent.com/oreilly-japan/data-science-on-aws-jp/7c1ea12f23725d5dfcc2db989a62bccbcd044340/workshop/00_quickstart/img/prepare_dataset_bert.png)
 
 
+> https://sagemaker.readthedocs.io/en/v2.5.5/amazon_sagemaker_processing.html<br>
+
+(1) You can run a scikit-learn script to do data processing on SageMaker using the sagemaker.sklearn.processing.SKLearnProcessor class.
+```
+from sagemaker.sklearn.processing import SKLearnProcessor
+sklearn_processor = SKLearnProcessor(framework_version='0.20.0',
+                                     role=role,
+                                     instance_count=1,
+                                     instance_type='ml.m5.xlarge')
+```
+(2) Then you can run a scikit-learn script preprocessing.py in a processing job. In this example, our script takes one input from S3 and one command-line argument, processes the data, then splits the data into two datasets for output. When the job is finished, we can retrive the output from S3.
+- データセット（dataset.csv） は自動的にコンテナの中の所定のディレクトリ （/input）にコピーされる。
+- 前処理を行い、データセットを3つに分割し、それぞれのファイルはコンテナの中の /opt/ml/processing/output/train 、 /opt/ml/processing/output/validation 、 /opt/ml/processing/output/test へ保存される。
+- ジョブが完了するとその出力を、S3 の中にある SageMaker のデフォルトのバケットへ自動的にコピーされる。
+```
+from sagemaker.processing import ProcessingInput, ProcessingOutput
+sklearn_processor.run(
+    code='preprocessing.py',
+    # arguments = ['arg1', 'arg2'],
+    inputs=[ProcessingInput(
+        source='dataset.csv',
+        destination='/opt/ml/processing/input')],
+    outputs=[ProcessingOutput(source='/opt/ml/processing/output/train'),
+        ProcessingOutput(source='/opt/ml/processing/output/validation'),
+        ProcessingOutput(source='/opt/ml/processing/output/test')]
+)
+```
+
+
 # 3. Model Train and Tuning
 
 # 4. Deploy and Monitoring
