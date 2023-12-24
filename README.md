@@ -107,7 +107,7 @@ Column statistics – On this tab, you can find detailed statistics about each c
 Imputing - fills in missing values for categorical attributes by identifying data patterns in the input dataset. It helps reduce the data quality issues due to incomplete / non-available data.<br>
 >![imputing.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/imputing.png)
 
-# 2-4. SageMaker Processing Job (Feature Engineering and Creating Train Data)
+# 2-4. SageMaker Processing Job (Feature Engineering and Create Training Data)
 Run the containerized Scikit-learn execution environment with SageMaker Processing Job and convert text to BERT embedding (vectorization).<br>
 コンテナ化されたScikit-learnの実行環境をSageMaker Processing Jobで実行し、テキストをBERT埋め込み(ベクトル化)に変換。<br>
 >https://github.com/oreilly-japan/data-science-on-aws-jp <br>
