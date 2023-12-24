@@ -21,8 +21,8 @@ Data, especially datasets spanning multiple years, is never perfect. Data qualit
 
 ![Processing-1.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Processing-1.png)
 
-Amazon SageMaker processing jobs can run Python scripts on container images using familiar open sources such as Pandas, Scikit-learn, Apache Spark, and XGboost.<br>
-そこで、Amazon SageMaker Processing jobは、Pandas, Scikit-learnやApache Spark、XGboostなどの使い慣れたオープンソースを使って、Pythonスクリプトをコンテナイメージ上で実行することができる。<br>
+Amazon SageMaker processing jobs can run Python scripts on container images using familiar open sources such as Pandas, Scikit-learn, Apache Spark, TensorFlow and XGboost.<br>
+そこで、Amazon SageMaker Processing jobは、Pandas, Scikit-learnやApache Spark、TensorFlow、XGboostなどの使い慣れたオープンソースを使って、Pythonスクリプトをコンテナイメージ上で実行することができる。<br>
 
 # Example using Pandas in Apache Spark
 ```
@@ -85,9 +85,15 @@ df.write.csv("s3://bucket/path/to/output_data.csv")
 df.write.parquet("s3://bucket/path/to/output_data.parquet")
 ```
 
-# 1-2-1. AWS Glue DataBrew (A Visual Data Preparation Tool)
-[AWS Glue DataBrew](https://docs.aws.amazon.com/databrew/latest/dg/what-is.html) is a visual data preparation tool that makes it easier for data analysts and data scientists to clean and normalize data to prepare it for analytics and machine learning (ML). 
+# 1-2-1. AWS Glue DataBrew (a Low code and Visual Data Preparation Tool)
+[AWS Glue DataBrew](https://docs.aws.amazon.com/databrew/latest/dg/what-is.html) is a visual data preparation tool that makes it easier for data analysts and data scientists to clean and normalize data to prepare it for analytics and machine learning (ML). <br>
+組み込み変換機能でデータセットの以上を検出し、異常データを変換(無効な値や欠損値を修正)。列の相関性を可視化。<br>
 ![overview.png](https://docs.aws.amazon.com/images/databrew/latest/dg/images/databrew-overview-diagram.png)
+
+Column statistics – On this tab, you can find detailed statistics about each column in your dataset, as shown following.
+![dataset-column-stats.png](https://docs.aws.amazon.com/images/databrew/latest/dg/images/dataset-column-stats.png)
+
+
 
 # 1-3. SageMaker Compute Instance type
 > https://aws.amazon.com/jp/ec2/instance-types/
