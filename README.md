@@ -21,6 +21,10 @@ Data, especially datasets spanning multiple years, is never perfect. Data qualit
 Amazon SageMaker processing jobs can run Python scripts on container images using familiar open sources such as Pandas, Scikit-learn, Apache Spark, TensorFlow and XGboost.<br>
 そこで、Amazon SageMaker Processing jobは、Pandas, Scikit-learnやApache Spark、TensorFlow、XGboostなどの使い慣れたオープンソースを使って、Pythonスクリプトをコンテナイメージ上で実行することができる。<br>
 
+# AWS Deequ
+Deequ is a library for analyzing data quality and detecting anomalies using Apache Spark.<br>
+Deequは、Apache Sparkを使ってデータの品質を分析し、異常を検知するためのライブラリ。
+
 # 2-2-1. Example using Pandas in Apache Spark
 What is [Apach Spark](https://github.com/developer-onizuka/HiveMetastore?tab=readme-ov-file#metastore-in-apache-spark) ?
 ```
