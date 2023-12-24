@@ -92,7 +92,7 @@ df.write.parquet("s3://bucket/path/to/output_data.parquet")
 | **M instance type** | A general-purpose instance with a good balance of compute, memory, and network bandwidth<br>  計算、メモリ、ネットワーク帯域幅のバランスがよい汎用的なインスタンス。<br> |
 | **C instance type** | Instances for compute-balanced workloads that require high-performance CPUs<br>  高性能なCPUが必要な計算制約ワークロード向けインスタンス。<br> |
 | **R instance type** | An instance for deploying large datasets in memory, such as Apache Spark<br>  Apache Sparkなどの大規模なデータセットをメモリに展開するためのインスタンス。<br> |
-| **P instance type** | A high-performance computing instance that uses less GPU<br>  GPUを兼ね備える高性能計算インスタンス。<br> |
+| **P instance type** | A high-performance computing instance that uses less GPU and supports [GPUDirect](https://github.com/developer-onizuka/what_is_GPUDirect-Storage)<br>  GPUを兼ね備える高性能計算インスタンス。<br> |
 | **G instance type** | Instances ideal for small, cost-sensitive learning and inference workloads<br>  コスト重視の小規模な学習や推論ワークロードに最適なインスタンス。<br> |
 
 
