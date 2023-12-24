@@ -22,6 +22,7 @@ Amazon SageMaker processing jobs can run Python scripts on container images usin
 そこで、Amazon SageMaker Processing jobは、Pandas, Scikit-learnやApache Spark、TensorFlow、XGboostなどの使い慣れたオープンソースを使って、Pythonスクリプトをコンテナイメージ上で実行することができる。<br>
 
 # 2-2-1. Example using Pandas in Apache Spark
+What is [Apach Spark](https://github.com/developer-onizuka/HiveMetastore?tab=readme-ov-file#metastore-in-apache-spark) ?
 ```
 %% cat input_data.csv
 1,Apple,10.99
