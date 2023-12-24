@@ -153,7 +153,8 @@ SageMakerで実行されるコンテナのファイルロケーションはS3に
 
 
 # 3. Model Train and Tuning
-
+Fine-tune using the BERT embedding from the review_body text already generated in 2-4 and create a custom classifier that predicts star_rating as shown in the figure below.<br>
+既に2-4で生成済みのreview_bodyテキストからのBERT埋め込みを使用してファインチューニングし、以下図に示すようにstar_ratingを予測するカスタム分類器を作成する。
 >![StarRating.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/StarRating.drawio.png)
 
 
