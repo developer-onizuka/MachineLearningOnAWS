@@ -154,6 +154,9 @@ SageMakerで実行されるコンテナのファイルロケーションはS3に
 
 # 3. Model Train and Tuning
 
+>![StarRating.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/StarRating.drawio.png)
+
+
 # 4. Deploy and Monitoring
 
 
