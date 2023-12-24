@@ -77,7 +77,7 @@ df.show()
 ```
 df.write.csv("s3://bucket/path/to/output_data.csv")
 ```
-- Write the DataFrame to Parquet File
+- Write the DataFrame to [Parquet](https://github.com/developer-onizuka/HiveMetastore?tab=readme-ov-file#5-1-parquet) File
 ```
 df.write.parquet("s3://bucket/path/to/output_data.parquet")
 ```
