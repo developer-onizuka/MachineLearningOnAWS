@@ -93,7 +93,7 @@ df.write.parquet("s3://bucket/path/to/output_data.parquet")
 Column statistics – On this tab, you can find detailed statistics about each column in your dataset, as shown following.
 ![dataset-column-stats.png](https://docs.aws.amazon.com/images/databrew/latest/dg/images/dataset-column-stats.png)
 
-Imputing - fills in missing values for categorical attributes by identifying data patterns in the input dataset. It helps reduce the data quality issues due to incomplete / non-available data.
+Imputing - fills in missing values for categorical attributes by identifying data patterns in the input dataset. It helps reduce the data quality issues due to incomplete / non-available data.<br>
 ![imputing.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/imputing.png)
 
 # 1-3. SageMaker Compute Instance type
