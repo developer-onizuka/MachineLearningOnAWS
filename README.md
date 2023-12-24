@@ -61,7 +61,7 @@ df_dropped.show()
 ```
 - Fill in the blanks with the average value
 ```
-df.fillna(df.mean()))
+df.fillna(df.mean())
 df.show()
 ```
 ```
