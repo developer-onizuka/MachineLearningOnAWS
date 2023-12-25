@@ -19,7 +19,7 @@ Data, especially datasets spanning multiple years, is never perfect. Data qualit
 >![Processing-1.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Processing-1.png)
 
 Amazon SageMaker processing jobs can run Python scripts on container images using familiar open sources such as Pandas, Scikit-learn, Apache Spark, TensorFlow and XGboost.<br>
-そこで、Amazon SageMaker Processing jobは、Pandas, Scikit-learnやApache Spark、TensorFlow、XGboostなどの使い慣れたオープンソースを使って、Pythonスクリプトをコンテナイメージ上で実行することができる。<br>
+そこで、Amazon SageMaker Processing jobは、Pandas、Scikit-learnやApache Spark、TensorFlow、XGboostなどの使い慣れたオープンソースを使って、Pythonスクリプトをコンテナイメージ上で実行することができる。<br>
 
 **- AWS Deequ**<br>
 Deequ is a library for analyzing data quality and detecting anomalies using Apache Spark.<br>
