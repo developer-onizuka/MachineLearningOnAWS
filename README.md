@@ -115,6 +115,9 @@ Imputing - fills in missing values for categorical attributes by identifying dat
 Run the containerized Scikit-learn execution environment with SageMaker Processing Job and convert text to BERT embedding (vectorization).<br>
 コンテナ化されたScikit-learnの実行環境をSageMaker Processing Jobで実行し、テキストをBERT埋め込み(ベクトル化)に変換。<br>
 
+An attempt to interpret which words have similar or distant meanings by vectorizing words.<br>
+単語をベクトル化することでどの単語同士が近い意味を持つのか遠い意味を持つのかを解釈しようとする試み。<br>
+
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Queen.png" width="320">
 
 >https://github.com/oreilly-japan/data-science-on-aws-jp <br>
