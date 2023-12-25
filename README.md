@@ -102,7 +102,7 @@ df.write.parquet("s3://bucket/path/to/output_data.parquet")
 
 # 2-3. AWS Glue DataBrew (a Low code and Visual Data Preparation Tool)
 [AWS Glue DataBrew](https://docs.aws.amazon.com/databrew/latest/dg/what-is.html) is a visual data preparation tool that makes it easier for data analysts and data scientists to clean and normalize data to prepare it for analytics and machine learning (ML). <br>
-組み込み変換機能でデータセットの以上を検出し、異常データを変換(無効な値や欠損値を修正)。列の相関性を可視化。<br>
+組み込み変換機能でデータセットの異常を検出し、異常データを変換(無効な値や欠損値を修正)。列の相関性を可視化。<br>
 ><img src="https://docs.aws.amazon.com/images/databrew/latest/dg/images/databrew-overview-diagram.png" width="720">
 
 Column statistics – On this tab, you can find detailed statistics about each column in your dataset, as shown following.
