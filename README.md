@@ -159,6 +159,12 @@ SageMakerで実行されるコンテナのファイルロケーションはS3に
 
 # 3. Model Train and Tuning
 # 3-1. BERTなどのNLPモデル
+The NLP algorithm called Word2vec takes a sentence from Wikipedia, etc., focuses on a specific word, and uses the words before and after that word as training data to calculate the weight to be given to the middle layer.
+The space that holds these weights as word-specific vectors is called a corpus, and it functions as a database that collects natural language sentences and usage on a large scale and organizes them so that they can be searched by computer.
+BERT and Chat-GPT use a method called attention to calculate this weight. The model cannot be created using the computational resources of one or two GPU machines.<br>
+Word2vecと呼ばれるNLPアルゴリズムでは、Wikipediaなどから文章を持ってきて、特定の単語に注目したときに、その単語の前後にある単語を教師データとして中間層に与える重みを計算する。
+この重みを単語固有のベクトルとして保持している空間をコーパスと呼び、自然言語の文章や使い方を大規模に収集しコンピュータで検索できるよう整理されたデータベースとして機能する。
+この重みを計算する手法に、アテンションと呼ばれる手法を使ったものが、BERTやChat-GPTである。1台や2台程度のGPUマシンの計算リソースでは当該モデルを作ることはできない。<br>
 
 >![Word2vec.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/Word2vec.drawio.png)
 
