@@ -117,6 +117,7 @@ Run the containerized Scikit-learn execution environment with SageMaker Processi
 
 An attempt to interpret which words have similar or distant meanings by vectorizing words.<br>
 単語をベクトル化することでどの単語同士が近い意味を持つのか遠い意味を持つのかを解釈しようとする試み。<br>
+>https://www.youtube.com/watch?v=FoY1rRH2Jc4
 
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Queen.png" width="320">
 
