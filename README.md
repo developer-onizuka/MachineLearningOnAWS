@@ -160,6 +160,7 @@ SageMakerで実行されるコンテナのファイルロケーションはS3に
 # 3. Model Train and Tuning
 # 3-1. BERTなどのNLPモデル
 
+>[Word2vec.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/Word2vec.drawio.png)
 
 # 3-2. SageMaker JumpStart (Fine Tuning)
 Fine-tune using the BERT embedding from the review_body text already generated in 2-4 and create a custom classifier that predicts star_rating as shown in the figure below.<br>
