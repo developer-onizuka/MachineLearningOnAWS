@@ -112,6 +112,7 @@ Imputing - fills in missing values for categorical attributes by identifying dat
 >![imputing.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/imputing.png)
 
 # 2-4. SageMaker Processing Job (Feature Engineering and Create Training Data)
+# 2-4-1. What is vectorization ?
 Run the containerized Scikit-learn execution environment with SageMaker Processing Job and convert text to BERT embedding (vectorization).<br>
 コンテナ化されたScikit-learnの実行環境をSageMaker Processing Jobで実行し、テキストをBERT埋め込み(ベクトル化)に変換。<br>
 
@@ -124,6 +125,7 @@ An attempt to interpret which words have similar or distant meanings by vectoriz
 The vector value is a value in a general-purpose linguistic knowledge space obtained through pre-learning (learning with a large corpus using specific words from existing texts such as Wikipedia as input and the preceding and following words as training data). <br>
 なお、当該ベクトル値は、事前学習(Wikipediaなどの既存の文章における特定の単語を入力とし、前後の単語を教師データとした大規模なコーパスでの学習)で得られた汎用的な言語知識空間内に定義された値となる。<br>
 
+# 2-4-2. Data Creation for your domain
 >https://github.com/oreilly-japan/data-science-on-aws-jp <br>
 ><img src="https://raw.githubusercontent.com/oreilly-japan/data-science-on-aws-jp/7c1ea12f23725d5dfcc2db989a62bccbcd044340/workshop/00_quickstart/img/prepare_dataset_bert.png" width="720">
 
