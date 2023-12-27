@@ -121,6 +121,9 @@ An attempt to interpret which words have similar or distant meanings by vectoriz
 
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Queen.png" width="320">
 
+The vector value is a value in a general-purpose linguistic knowledge space obtained through pre-learning (learning with a large corpus using specific words from existing texts such as Wikipedia as input and the preceding and following words as training data). <br>
+なお、当該ベクトル値は、事前学習(Wikipediaなどの既存の文章における特定の単語を入力とし、前後の単語を教師データとした大規模なコーパスでの学習)で得られた汎用的な言語知識空間内に定義された値となる。<br>
+
 >https://github.com/oreilly-japan/data-science-on-aws-jp <br>
 ><img src="https://raw.githubusercontent.com/oreilly-japan/data-science-on-aws-jp/7c1ea12f23725d5dfcc2db989a62bccbcd044340/workshop/00_quickstart/img/prepare_dataset_bert.png" width="720">
 
@@ -169,6 +172,9 @@ Word2vecと呼ばれるNLPアルゴリズムでは、Wikipediaなどから文章
 　入力値：みかん<br>
 　教師データ：食べる<br>
 <br>
+
+After all, pre-learning is learning that acquires general-purpose language knowledge by learning once with a large-scale language model such as BERT and a large-scale corpus.<br>
+結局、事前学習とは、BERTなどの大規模言語モデルで一度、大規模なコーパスで学習することで、汎用的な言語知識を獲得する学習である。
 
 >![Word2vec.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/Word2vec.drawio.png)
 
