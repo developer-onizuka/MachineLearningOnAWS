@@ -176,8 +176,8 @@ Word2vecと呼ばれるNLPアルゴリズムでは、Wikipediaなどから文章
 　教師データ：食べる<br>
 <br>
 
-After all, pre-train is learning that acquires general-purpose language knowledge by learning once with a large-scale language model such as BERT and a large-scale corpus.<br>
-結局、事前学習とはBERTなどの大規模言語モデルで一度、大規模なコーパスをもとに学習することで、汎用的な言語知識を獲得する学習である。
+After all, pre-traing is learning to acquire general-purpose linguistic knowledge by learning how to use words based on a large-scale corpus using natural language processing such as BERT.<br>
+結局、事前学習とは、BERTなどの自然言語処理で大規模なコーパスをもとに言葉の使い方を学習することで、汎用的な言語知識を獲得する学習である。
 
 >![Word2vec.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/Word2vec.drawio.png)
 
