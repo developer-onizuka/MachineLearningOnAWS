@@ -26,7 +26,7 @@ Amazon SageMaker processing jobs can run Python scripts on container images usin
 Deequ is a library for analyzing data quality and detecting anomalies using Apache Spark.<br>
 Deequは、Apache Sparkを使ってデータの品質を分析し、異常を検知するためのライブラリ。
 
-# 2-2-1. Example using Pandas in Apache Spark
+# 2-2-1. Example using Pandas
 What is [Apach Spark](https://github.com/developer-onizuka/HiveMetastore?tab=readme-ov-file#metastore-in-apache-spark) ?
 ```
 %% cat input_data.csv
@@ -35,9 +35,9 @@ What is [Apach Spark](https://github.com/developer-onizuka/HiveMetastore?tab=rea
 3,Banana,12.99
 4,Lemon,NaN
 ```
-- Load the CSV file into DataFrame in Apache Spark
+- Load the CSV file into DataFrame
 ```
-df = spark.read.option('header','false').format("csv").load("s3://bucket/path/to/input_data.csv")
+df = pd.read_csv('data/src/input_data.csv')
 df.show()
 +---+------+-----+
 |_c0|   _c1|  _c2|
@@ -81,8 +81,8 @@ df.write.csv("s3://bucket/path/to/output_data.csv")
 ```
 df.write.parquet("s3://bucket/path/to/output_data.parquet")
 ```
-# 2-2-2. Amazon review Dataset
-# (1) Run Spark Container
+# 2-2-2. Example using Apache Spark with Amazon review Dataset
+# (1) Run a Spark Container
 ```
 $ sudo docker run -it --rm -p 8888:8888 --name spark jupyter/all-spark-notebook:spark-3.5.0
 ```
@@ -90,8 +90,9 @@ If you want to use volume which can be shared between a host and containers and 
 ```
 $ sudo docker run -it -v /mnt/c/Temp:/mnt --rm --gpus all -p 8888:8888 --name spark jupyter/all-spark-notebook:spark-3.5.0
 ```
+You can connect to the Jupyter notebook with your browser.
 
-# (2) Create Spark Session in Jupyter Notebook
+# (2) Create a Spark Session
 ```
 from pyspark.sql.types import *
 from pyspark.sql.functions import *
@@ -109,13 +110,15 @@ spark = SparkSession \
 conf = spark.sparkContext.getConf()
 print("# spark.executor.memory = ", conf.get("spark.executor.memory"))
 print("# spark.executor.memoryOverhead = ", conf.get("spark.executor.memoryOverhead"))
-
-df=spark.read.parquet("/mnt/amazon_reviews_2015.snappy.parquet")
-# https://datasets-documentation.s3.eu-west-3.amazonaws.com/amazon_reviews/amazon_reviews_2015.snappy.parquet
 # spark.executor.memory =  8g
 # spark.executor.memoryOverhead =  None
 ```
-# (3) Confirm Data and its Schema in Jupyter Notebook
+# (3) Load the Amazon review Dataset into DataFrame of Apache Spark
+```
+df=spark.read.parquet("/mnt/amazon_reviews_2015.snappy.parquet")
+# https://datasets-documentation.s3.eu-west-3.amazonaws.com/amazon_reviews/amazon_reviews_2015.snappy.parquet
+```
+# (4) Confirm the Data and its Schema
 ```
 df.printSchema()
 root
@@ -173,12 +176,7 @@ temp.show(10)
 +-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
 only showing top 10 rows
 ```
-```
-df.count()
-41905631
-```
-
-# (4) Check Null value in Jupyter Notebook
+# (5) Check Null values
 In case of some errors, you may increase the spark.driver.memory and spark.executor.memory.
 ```
 from pyspark.sql.functions import *
