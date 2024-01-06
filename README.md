@@ -87,8 +87,88 @@ df.write.csv("s3://bucket/path/to/output_data.csv")
 ```
 df.write.parquet("s3://bucket/path/to/output_data.parquet")
 ```
+# 2-2-2. Amazon review Dataset
+```
+$ sudo docker run -it -v /mnt/c/Temp:/mnt --rm -p 8888:8888 --name spark jupyter/all-spark-notebook:spark-3.5.0
+```
+```
+from pyspark.sql.types import *
+from pyspark.sql.functions import *
+from pyspark.context import SparkContext
+from pyspark.sql.session import SparkSession
+sc = SparkContext.getOrCreate()
+spark = SparkSession(sc)
+spark.conf.set("spark.sql.parquet.binaryAsString","true")
 
-# 2-2-2. SageMaker Compute Instance type
+df=spark.read.parquet("/mnt/amazon_reviews_2015.snappy.parquet")
+# https://datasets-documentation.s3.eu-west-3.amazonaws.com/amazon_reviews/amazon_reviews_2015.snappy.parquet
+```
+```
+df.printSchema()
+```
+```
+root
+ |-- review_date: integer (nullable = true)
+ |-- marketplace: string (nullable = true)
+ |-- customer_id: decimal(20,0) (nullable = true)
+ |-- review_id: string (nullable = true)
+ |-- product_id: string (nullable = true)
+ |-- product_parent: decimal(20,0) (nullable = true)
+ |-- product_title: string (nullable = true)
+ |-- product_category: string (nullable = true)
+ |-- star_rating: short (nullable = true)
+ |-- helpful_votes: long (nullable = true)
+ |-- total_votes: long (nullable = true)
+ |-- vine: boolean (nullable = true)
+ |-- verified_purchase: boolean (nullable = true)
+ |-- review_headline: string (nullable = true)
+ |-- review_body: string (nullable = true)
+```
+```
+df.show(10)
+```
+```
++-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
+|review_date|marketplace|customer_id|     review_id|product_id|product_parent|       product_title|product_category|star_rating|helpful_votes|total_votes| vine|verified_purchase|     review_headline|         review_body|
++-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
+|      16455|         US|   47052105|R2C20GSMIOZYVP|B004BQWJXK|     111796163|Prosciutto Di Par...|         Grocery|          5|            2|          2|false|             true|you will not be d...|I have made multi...|
+|      16455|         US|   49070565| RPI30SPP1J9U9|B00IJGSSRO|      15606588|Hoosier Hill Farm...|         Grocery|          3|            1|          1|false|             true|Not sure if the q...|I am not sure if ...|
+|      16455|         US|    3081462| RKYY2ZQGUV06L|B004QJEJ1M|     179477362|Limited Edition M...|         Grocery|          1|            0|          0|false|             true|Taste is as mild ...|I was  hoping thi...|
+|      16455|         US|   13807093| RKYYAEA9G3CD4|B00INK53D8|     600604708|Stash Tea Teabags...|         Grocery|          5|            0|          0|false|             true|          Five Stars|        Awesome Tea!|
+|      16455|         US|   48608794|R17ZQPU555KVR6|B00P0LLZ4O|     454046525|Reese's Spreads P...|         Grocery|          4|            0|          0|false|            false|This tasty spread...|This tasty spread...|
+|      16455|         US|   45849122|R1Q5A9D8NWQDXZ|B000V9EIEE|     282714980|Nips Candy (pack ...|         Grocery|          5|            0|          0|false|             true|  The best snack yet|        I love these|
+|      16455|         US|   45430661| RB4ZEYM0KIH2L|B00BXMHZNO|     843662630|ICE CHIPS Pepperm...|         Grocery|          5|            0|          0|false|             true|          Five Stars|They are wonderfu...|
+|      16455|         US|   42665705|R11NTR1JWBJK19|B004N5MDY4|     479154054|HERSHEY'S Holiday...|         Grocery|          3|            0|          0|false|            false|It was good, but ...|It was Hershey's ...|
+|      16455|         US|   39221810| RURVG71IJE5TD|B00K89HCTU|     253806662|Coffee Variety Sa...|         Grocery|          5|            0|          0|false|            false|        A Good Value|The 40-count coff...|
+|      16455|         US|   16143433|R1B96XLD73K1OS|B000WV0RW8|     653213046|Healthworks Chia ...|         Grocery|          4|            1|          1|false|             true|          Four Stars|             perfect|
++-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
+only showing top 10 rows
+```
+```
+df.registerTempTable('views')
+temp = spark.sql('SELECT * FROM views WHERE star_rating=3')
+temp.show(10)
+```
+```
++-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
+|review_date|marketplace|customer_id|     review_id|product_id|product_parent|       product_title|product_category|star_rating|helpful_votes|total_votes| vine|verified_purchase|     review_headline|         review_body|
++-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
+|      16455|         US|   49070565| RPI30SPP1J9U9|B00IJGSSRO|      15606588|Hoosier Hill Farm...|         Grocery|          3|            1|          1|false|             true|Not sure if the q...|I am not sure if ...|
+|      16455|         US|   42665705|R11NTR1JWBJK19|B004N5MDY4|     479154054|HERSHEY'S Holiday...|         Grocery|          3|            0|          0|false|            false|It was good, but ...|It was Hershey's ...|
+|      16455|         US|   18796614|R1RPQ7HKR2FL3S|B0052P27E0|     461603490|Newman's Own Orga...|         Grocery|          3|            0|          0|false|             true|         Three Stars|Good...but the mo...|
+|      16455|         US|   44721885|R1EW92YL5PUGHG|B000FED3SW|     973710819|Red Vines Sugar F...|         Grocery|          3|            0|          0|false|             true|         Three Stars|I used to love th...|
+|      16455|         US|    8000689|R1NSHT693NNN53|B008F8BNIM|       1228503|King of Joe Cappu...|         Grocery|          3|            0|          0|false|             true|         Three Stars|                Okay|
+|      16455|         US|   36920989|R1070HUW6G1PSQ|B0083CP20A|     204990765|Lily's Dark Choco...|         Grocery|          3|            1|          1|false|             true|Wish they'd leave...|Wish they'd  leav...|
+|      16455|         US|   49752507|R1BUB8YD8ARX25|B0050IBIJE|     765113109|Kong Company Real...|         Grocery|          3|            0|          0|false|             true|      It works. But.|It's peanut butte...|
+|      16455|         US|   37376084|R3QK3FZ3YYQ9XZ|B00JWZS6N2|     198841106|Jelly Belly Draft...|         Grocery|          3|            0|          0|false|             true|         Three Stars|Tastes like beer!...|
+|      16455|         US|   22429897|R2S3A8LM8WCNRR|B008JEK8XI|      94923674|Sugar Free Red Wi...|         Grocery|          3|            0|          0|false|             true|         Three Stars|    They are good :)|
+|      16455|         US|   42968311| ROD0XDNDI5IBW|B008Z5L2MW|     532116530|Starbucks&#0174; ...|         Grocery|          3|            0|          0|false|             true|         Three Stars|Good but slightly...|
++-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
+only showing top 10 rows
+```
+
+
+# 2-2-3. SageMaker Compute Instance type
 > https://aws.amazon.com/jp/ec2/instance-types/
 
 | Instance Familiy | Features |
