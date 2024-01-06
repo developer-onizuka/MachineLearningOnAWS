@@ -102,8 +102,7 @@ spark = SparkSession \
         .builder \
         .appName("myapp") \
         .master("local") \
-        .config("spark.executor.memory", "4g") \
-        .config("spark.executor.memoryOverhead", "4g") \
+        .config("spark.executor.memory", "8g") \
         .config("spark.sql.parquet.binaryAsString","true") \
         .getOrCreate()
 
@@ -113,8 +112,8 @@ print("# spark.executor.memoryOverhead = ", conf.get("spark.executor.memoryOverh
 
 df=spark.read.parquet("/mnt/amazon_reviews_2015.snappy.parquet")
 # https://datasets-documentation.s3.eu-west-3.amazonaws.com/amazon_reviews/amazon_reviews_2015.snappy.parquet
-# spark.executor.memory =  4g
-# spark.executor.memoryOverhead =  4g
+# spark.executor.memory =  8g
+# spark.executor.memoryOverhead =  None
 ```
 # (3) Confirm Data and its Schema in Jupyter Notebook
 ```
