@@ -27,59 +27,8 @@ Deequ is a library for analyzing data quality and detecting anomalies using Apac
 Deequは、Apache Sparkを使ってデータの品質を分析し、異常を検知するためのライブラリ。
 
 # 2-2-1. Example using Pandas
-```
-%% cat input_data.csv
-1,Apple,10.99
-2,Orange,11.99
-3,Banana,12.99
-4,Lemon,NaN
-```
-- Load the CSV file into DataFrame
-```
-df = pd.read_csv('data/src/input_data.csv')
-df.show()
-+---+------+-----+
-|_c0|   _c1|  _c2|
-+---+------+-----+
-|  1| Apple|10.99|
-|  2|Orange|11.99|
-|  3|Banana|12.99|
-|  4| Lemon|NaN  |
-+---+------+-----+
-```
-- Remove null values ​​as rows
-```
-df_dropped = df.dropna()
-df_dropped.show()
-+---+------+-----+
-|_c0|   _c1|  _c2|
-+---+------+-----+
-|  1| Apple|10.99|
-|  2|Orange|11.99|
-|  3|Banana|12.99|
-+---+------+-----+
-```
-- Fill in the blanks with the average value
-```
-df.fillna(df.mean())
-df.show()
-+---+------+-----+
-|_c0|   _c1|  _c2|
-+---+------+-----+
-|  1| Apple|10.99|
-|  2|Orange|11.99|
-|  3|Banana|12.99|
-|  4| Lemon|11.99| <--
-+---+------+-----+
-```
-- Write the DataFrame to CSV File
-```
-df.write.csv("s3://bucket/path/to/output_data.csv")
-```
-- Write the DataFrame to [Parquet](https://github.com/developer-onizuka/HiveMetastore?tab=readme-ov-file#5-1-parquet) File
-```
-df.write.parquet("s3://bucket/path/to/output_data.parquet")
-```
+See Fruits.ipynb in this repository.
+
 # 2-2-2. Example using Apache Spark with Amazon review Dataset
 You can learn about Apach Spark [here](https://github.com/developer-onizuka/HiveMetastore?tab=readme-ov-file#metastore-in-apache-spark).
 
