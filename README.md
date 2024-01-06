@@ -27,7 +27,6 @@ Deequ is a library for analyzing data quality and detecting anomalies using Apac
 Deequは、Apache Sparkを使ってデータの品質を分析し、異常を検知するためのライブラリ。
 
 # 2-2-1. Example using Pandas
-What is [Apach Spark](https://github.com/developer-onizuka/HiveMetastore?tab=readme-ov-file#metastore-in-apache-spark) ?
 ```
 %% cat input_data.csv
 1,Apple,10.99
@@ -82,6 +81,8 @@ df.write.csv("s3://bucket/path/to/output_data.csv")
 df.write.parquet("s3://bucket/path/to/output_data.parquet")
 ```
 # 2-2-2. Example using Apache Spark with Amazon review Dataset
+You can learn about Apach Spark [here](https://github.com/developer-onizuka/HiveMetastore?tab=readme-ov-file#metastore-in-apache-spark).
+
 # (1) Run a Spark Container
 ```
 $ sudo docker run -it --rm -p 8888:8888 --name spark jupyter/all-spark-notebook:spark-3.5.0
