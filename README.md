@@ -82,9 +82,12 @@ df.write.csv("s3://bucket/path/to/output_data.csv")
 df.write.parquet("s3://bucket/path/to/output_data.parquet")
 ```
 # 2-2-2. Amazon review Dataset
+# (1) Run Spark Container
 ```
 $ sudo docker run -it -v /mnt/c/Temp:/mnt --rm -p 8888:8888 --name spark jupyter/all-spark-notebook:spark-3.5.0
 ```
+
+# (2) Create Spark Session in Jupyter Notebook
 ```
 from pyspark.sql.types import *
 from pyspark.sql.functions import *
@@ -109,6 +112,7 @@ df=spark.read.parquet("/mnt/amazon_reviews_2015.snappy.parquet")
 # spark.executor.memory =  4g
 # spark.executor.memoryOverhead =  4g
 ```
+# (3) Confirm Data and its Schema in Jupyter Notebook
 ```
 df.printSchema()
 root
@@ -170,6 +174,8 @@ only showing top 10 rows
 df.count()
 41905631
 ```
+
+# (4) Check Null value in Jupyter Notebook
 ```
 from pyspark.sql.functions import *
 #count number of null values in each column of DataFrame
