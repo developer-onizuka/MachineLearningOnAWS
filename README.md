@@ -154,7 +154,16 @@ temp.show(10)
 +-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
 only showing top 10 rows
 ```
+```
+df.count()
+41905631
+```
+```
+from pyspark.sql.functions import when, count, col
 
+#count number of null values in each column of DataFrame
+df.select([count(when(col(c).isNull(), c)).alias(c) for c in df.columns]).show()
+```
 
 # 2-2-3. SageMaker Compute Instance type
 > https://aws.amazon.com/jp/ec2/instance-types/
