@@ -84,7 +84,11 @@ df.write.parquet("s3://bucket/path/to/output_data.parquet")
 # 2-2-2. Amazon review Dataset
 # (1) Run Spark Container
 ```
-$ sudo docker run -it -v /mnt/c/Temp:/mnt --rm -p 8888:8888 --name spark jupyter/all-spark-notebook:spark-3.5.0
+$ sudo docker run -it --rm -p 8888:8888 --name spark jupyter/all-spark-notebook:spark-3.5.0
+```
+If you want to use volume which can be shared between a host and containers and use GPU, try the command below:
+```
+$ sudo docker run -it -v /mnt/c/Temp:/mnt --rm --gpus all -p 8888:8888 --name spark jupyter/all-spark-notebook:spark-3.5.0
 ```
 
 # (2) Create Spark Session in Jupyter Notebook
