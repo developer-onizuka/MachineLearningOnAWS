@@ -90,12 +90,24 @@ from pyspark.sql.types import *
 from pyspark.sql.functions import *
 from pyspark.context import SparkContext
 from pyspark.sql.session import SparkSession
-sc = SparkContext.getOrCreate()
-spark = SparkSession(sc)
-spark.conf.set("spark.sql.parquet.binaryAsString","true")
+
+spark = SparkSession \
+        .builder \
+        .appName("myapp") \
+        .master("local") \
+        .config("spark.executor.memory", "4g") \
+        .config("spark.executor.memoryOverhead", "4g") \
+        .config("spark.sql.parquet.binaryAsString","true") \
+        .getOrCreate()
+
+conf = spark.sparkContext.getConf()
+print("# spark.executor.memory = ", conf.get("spark.executor.memory"))
+print("# spark.executor.memoryOverhead = ", conf.get("spark.executor.memoryOverhead"))
 
 df=spark.read.parquet("/mnt/amazon_reviews_2015.snappy.parquet")
 # https://datasets-documentation.s3.eu-west-3.amazonaws.com/amazon_reviews/amazon_reviews_2015.snappy.parquet
+# spark.executor.memory =  4g
+# spark.executor.memoryOverhead =  4g
 ```
 ```
 df.printSchema()
@@ -159,10 +171,14 @@ df.count()
 41905631
 ```
 ```
-from pyspark.sql.functions import when, count, col
-
+from pyspark.sql.functions import *
 #count number of null values in each column of DataFrame
 df.select([count(when(col(c).isNull(), c)).alias(c) for c in df.columns]).show()
++-----------+-----------+-----------+---------+----------+--------------+-------------+----------------+-----------+-------------+-----------+----+-----------------+---------------+-----------+
+|review_date|marketplace|customer_id|review_id|product_id|product_parent|product_title|product_category|star_rating|helpful_votes|total_votes|vine|verified_purchase|review_headline|review_body|
++-----------+-----------+-----------+---------+----------+--------------+-------------+----------------+-----------+-------------+-----------+----+-----------------+---------------+-----------+
+|          0|          0|          0|        0|         0|             0|            0|               0|          0|            0|          0|   0|                0|              0|          0|
++-----------+-----------+-----------+---------+----------+--------------+-------------+----------------+-----------+-------------+-----------+----+-----------------+---------------+-----------+
 ```
 
 # 2-2-3. SageMaker Compute Instance type
