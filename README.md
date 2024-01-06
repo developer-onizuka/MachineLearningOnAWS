@@ -176,6 +176,7 @@ df.count()
 ```
 
 # (4) Check Null value in Jupyter Notebook
+In case of some errors, you may increase the spark.driver.memory and spark.executor.memory.
 ```
 from pyspark.sql.functions import *
 #count number of null values in each column of DataFrame
