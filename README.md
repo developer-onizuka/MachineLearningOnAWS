@@ -39,8 +39,6 @@ What is [Apach Spark](https://github.com/developer-onizuka/HiveMetastore?tab=rea
 ```
 df = spark.read.option('header','false').format("csv").load("s3://bucket/path/to/input_data.csv")
 df.show()
-```
-```
 +---+------+-----+
 |_c0|   _c1|  _c2|
 +---+------+-----+
@@ -54,8 +52,6 @@ df.show()
 ```
 df_dropped = df.dropna()
 df_dropped.show()
-```
-```
 +---+------+-----+
 |_c0|   _c1|  _c2|
 +---+------+-----+
@@ -68,8 +64,6 @@ df_dropped.show()
 ```
 df.fillna(df.mean())
 df.show()
-```
-```
 +---+------+-----+
 |_c0|   _c1|  _c2|
 +---+------+-----+
@@ -105,8 +99,6 @@ df=spark.read.parquet("/mnt/amazon_reviews_2015.snappy.parquet")
 ```
 ```
 df.printSchema()
-```
-```
 root
  |-- review_date: integer (nullable = true)
  |-- marketplace: string (nullable = true)
@@ -126,8 +118,6 @@ root
 ```
 ```
 df.show(10)
-```
-```
 +-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
 |review_date|marketplace|customer_id|     review_id|product_id|product_parent|       product_title|product_category|star_rating|helpful_votes|total_votes| vine|verified_purchase|     review_headline|         review_body|
 +-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
@@ -148,8 +138,6 @@ only showing top 10 rows
 df.registerTempTable('views')
 temp = spark.sql('SELECT * FROM views WHERE star_rating=3')
 temp.show(10)
-```
-```
 +-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
 |review_date|marketplace|customer_id|     review_id|product_id|product_parent|       product_title|product_category|star_rating|helpful_votes|total_votes| vine|verified_purchase|     review_headline|         review_body|
 +-----------+-----------+-----------+--------------+----------+--------------+--------------------+----------------+-----------+-------------+-----------+-----+-----------------+--------------------+--------------------+
