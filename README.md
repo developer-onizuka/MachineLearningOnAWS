@@ -254,6 +254,28 @@ spark_processor.run(
 )
 ```
 
+# 2-4-5. Convert raw text to BERT features
+Spark snippet to convert raw text to BERT embedding using Transformers provided as a Python library<br>
+Pythonライブラリとして提供されているTransformersを使い、生のテキストをBERT埋め込みに変換するSparkのスニペット
+```
+import tensorflow as tf
+import collections
+import json
+import os
+import pandas as pd
+import csv
+from transformers import DistilBertTokenizer
+
+max_seq_length = 64
+
+tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
+
+REVIEW_BODY_COLUMN = "review_body"
+REVIEW_ID_COLUMN = "review_id"
+
+LABEL_COLUMN = "star_rating"
+LABEL_VALUES = [1, 2, 3, 4, 5]
+```
 # 3. Model Train and Tuning
 # 3-1. BERTなどのNLPモデル
 The NLP algorithm called Word2vec takes a sentence from Wikipedia, etc., focuses on a specific word, and uses the words before and after that word as training data to calculate the weight to be given to the middle layer. The space that holds these weights as word-specific vectors is called a corpus, and it functions as a database that collects natural language sentences and usage on a large scale and organizes them so that they can be searched by computer. BERT and Chat-GPT use a method called attention to calculate this weight. The model cannot be created using the computational resources of one or two GPU machines.<br>
