@@ -1,5 +1,5 @@
 # Goal
-**Understand the difference between pre-trained models and fine-tuning** <br>
+**Understand the difference between pre-training and fine-tuning** <br>
 
 >![bert_training.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/bert_training.png)
 
