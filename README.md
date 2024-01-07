@@ -8,6 +8,9 @@
 >![WorkFlow.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/WorkFlow.drawio.png)
 
 # 2. Data Preparation
+Perform feature engineering to create a BERT embedding from the review_body text using the pretrained BERT model and split the dataset into training, validation, and test files.<br>
+事前学習済みBERTモデルを使用して review_body テキストからBERT埋め込みを作成するための特徴量エンジニアリングを実行し、データセットをトレーニング、バリデーション、およびテストファイルに分割する。
+
 # 2-1. Amazon S3 (Ingest Data into Data Lake)
 Business success is closely tied to the ability of companies to quickly derive value from their data. Therefore, they are moving to highly scalable, available, secure, and flexible data stores, which they call data lakes.<br>
 ビジネスの成功は企業がデータから素早く価値を引き出せるかどうかと密接に関係している。そのため、拡張性、可用性、安全性、柔軟性に優れたデータストアに移行しており、これをデータレイクと呼んでいる。
