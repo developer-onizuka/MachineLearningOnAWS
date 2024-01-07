@@ -31,6 +31,8 @@ See Fruits.ipynb in this repository.
 
 # 2-2-2. Example using Apache Spark with Amazon review Dataset
 You can learn about Apach Spark [here](https://github.com/developer-onizuka/HiveMetastore?tab=readme-ov-file#metastore-in-apache-spark).
+If you wanna create your own evironment for container, then you can create it so easily on your windows10 machine. See it the link below:<br>
+>https://github.com/developer-onizuka/NvidiaDockerOnWSL<br>
 
 # (1) Run a Spark Container
 ```
