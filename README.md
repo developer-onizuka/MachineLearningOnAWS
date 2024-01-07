@@ -188,6 +188,7 @@ The vector value is a value in a general-purpose linguistic knowledge space obta
 (1) You can run a scikit-learn script to do data processing on SageMaker using the sagemaker.sklearn.processing.SKLearnProcessor class.
 ```
 from sagemaker.sklearn.processing import SKLearnProcessor
+
 sklearn_processor = SKLearnProcessor(framework_version='0.20.0',
                                      role=role,
                                      instance_count=1,
@@ -229,7 +230,8 @@ spark_processor = ScriptProcessor(
     max_runtime_in_seconds=1200,
     env={"mode": "python"},
 )
-
+```
+```
 spark_processor.run(
     code="preprocess.py",
     arguments=[
@@ -244,8 +246,6 @@ spark_processor.run(
     ],
     logs=False,
 )
-```
-```
 ```
 
 # 3. Model Train and Tuning
