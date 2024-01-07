@@ -1,6 +1,6 @@
 # Goal
-**Understand the difference between Pre-Training and Fine-Tuning** <br>
-**Understand what is Feature Engineering** <br>
+**- Understand the difference between Pre-Training and Fine-Tuning** <br>
+**- Understand what is Feature Engineering** <br>
 
 >![bert_training.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/bert_training.png)
 
