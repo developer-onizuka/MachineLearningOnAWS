@@ -179,7 +179,7 @@ An attempt to interpret which words have similar or distant meanings by vectoriz
 The vector value is a value in a general-purpose linguistic knowledge space obtained through pre-learning (learning with a large corpus using specific words from existing texts such as Wikipedia as input and the preceding and following words as training data). <br>
 なお、当該ベクトル値は、事前学習(Wikipediaなどの既存の文章における特定の単語を入力とし、前後の単語を教師データとした大規模なコーパスでの学習)で得られた汎用的な言語知識空間内に定義された値となる。<br>
 
-# 2-4-2. Data Creation for your domain
+# 2-4-2. Data Pre-Processing with Scikit-learn
 >https://github.com/oreilly-japan/data-science-on-aws-jp <br>
 ><img src="https://raw.githubusercontent.com/oreilly-japan/data-science-on-aws-jp/7c1ea12f23725d5dfcc2db989a62bccbcd044340/workshop/00_quickstart/img/prepare_dataset_bert.png" width="720">
 
@@ -215,6 +215,38 @@ File locations of containers running in SageMaker are mapped to S3.<br>
 SageMakerで実行されるコンテナのファイルロケーションはS3にマッピングされる。
 >![SageMakerFileLocation.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/SageMakerFileLocation.drawio.png)
 
+# 2-4-3. Data Pre-Processing with Spark
+```
+from sagemaker.processing import ScriptProcessor, ProcessingInput
+
+spark_processor = ScriptProcessor(
+    base_job_name="spark-preprocessor",
+    image_uri="<ECR repository URI to your Spark processing image>",
+    command=["/opt/program/submit"],
+    role=role,
+    instance_count=2,
+    instance_type="ml.r5.xlarge",
+    max_runtime_in_seconds=1200,
+    env={"mode": "python"},
+)
+
+spark_processor.run(
+    code="preprocess.py",
+    arguments=[
+        "s3_input_bucket",
+        bucket,
+        "s3_input_key_prefix",
+        input_prefix,
+        "s3_output_bucket",
+        bucket,
+        "s3_output_key_prefix",
+        input_preprocessed_prefix,
+    ],
+    logs=False,
+)
+```
+```
+```
 
 # 3. Model Train and Tuning
 # 3-1. BERTなどのNLPモデル
