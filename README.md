@@ -8,9 +8,6 @@
 >![WorkFlow.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/WorkFlow.drawio.png)
 
 # 2. Data Preparation
-Perform feature engineering to create a BERT embedding from the review_body text using the pretrained BERT model and split the dataset into training, validation, and test files.<br>
-事前学習済みBERTモデルを使用して review_body テキストからBERT埋め込みを作成するための特徴量エンジニアリングを実行し、データセットをトレーニング、バリデーション、およびテストファイルに分割する。
-
 # 2-1. Amazon S3 (Ingest Data into Data Lake)
 Business success is closely tied to the ability of companies to quickly derive value from their data. Therefore, they are moving to highly scalable, available, secure, and flexible data stores, which they call data lakes.<br>
 ビジネスの成功は企業がデータから素早く価値を引き出せるかどうかと密接に関係している。そのため、拡張性、可用性、安全性、柔軟性に優れたデータストアに移行しており、これをデータレイクと呼んでいる。
@@ -172,6 +169,9 @@ Imputing - fills in missing values for categorical attributes by identifying dat
 >![imputing.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/imputing.png)
 
 # 2-4. SageMaker Processing Job (Feature Engineering and Create Training Data)
+Perform feature engineering to create a BERT embedding from the review_body text using the pretrained BERT model and split the dataset into training, validation, and test files.<br>
+事前学習済みBERTモデルを使用して review_body テキストからBERT埋め込みを作成するための特徴量エンジニアリングを実行し、データセットをトレーニング、バリデーション、およびテストファイルに分割する。
+
 # 2-4-1. What is vectorization ?
 Run the containerized Scikit-learn execution environment with SageMaker Processing Job and convert text to BERT embedding (vectorization).<br>
 コンテナ化されたScikit-learnの実行環境をSageMaker Processing Jobで実行し、テキストをBERT埋め込み(ベクトル化)に変換。<br>
