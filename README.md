@@ -366,8 +366,11 @@ Mon Jan  8 13:27:12 2024
 |        ID   ID                                                             Usage      |
 |=======================================================================================|
 +---------------------------------------------------------------------------------------+
-
 ```
+
+You can check if the model created works well. You just define predict function with model.predict().<br>
+
+!(predict.png)[https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/predict.png]
 
 # 4. Deploy and Monitoring
 
