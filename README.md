@@ -307,3 +307,8 @@ This additional learning of pre-trained models such as BERT and Chat-GPT using d
 # 4. Deploy and Monitoring
 
 
+
+```
+$ sudo docker run --name nvidia-driver -itd --rm --privileged --pid=host -v /run/nvidia:/run/nvidia:shared -v /var/log:/var/log  nvcr.io/nvidia/driver:535.129.03-ubuntu20.04
+$ sudo docker logs -f nvidia-driver
+```
