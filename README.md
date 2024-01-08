@@ -304,12 +304,23 @@ This additional learning of pre-trained models such as BERT and Chat-GPT using d
 
 >![Vector.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/Vector.drawio.png)
 
-# 4. Deploy and Monitoring
-
-
-
+# 3-3. On My Workstation (Fine Tuning)
+```
+$ git clone https://github.com/developer-onizuka/MachineLearningOnAWS
+$ cd MachineLearning
+$ virsh pool-start data
+$ vagrant up --provider=libvirt
+$ vagrant ssh
+```
 ```
 $ sudo docker run --name nvidia-driver -itd --rm --privileged --pid=host -v /run/nvidia:/run/nvidia:shared -v /var/log:/var/log  nvcr.io/nvidia/driver:535.129.03-ubuntu20.04
 $ sudo docker logs -f nvidia-driver
 $ sudo docker run -it --rm --gpus all -v /home/vagrant:/mnt --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 --name tensorflow nvcr.io/nvidia/tensorflow:23.03-tf1-py3
 ```
+
+
+# 4. Deploy and Monitoring
+
+
+
+
