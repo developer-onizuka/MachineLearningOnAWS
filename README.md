@@ -281,7 +281,7 @@ REVIEW_ID_COLUMN = "review_id"
 LABEL_COLUMN = "star_rating"
 LABEL_VALUES = [1, 2, 3, 4, 5]
 ```
-# (2) Tokenize the Tokenizer defined above
+# (2) Tokenize the input thru Tokenizer defined above
 ```
 def convert_input(the_input, max_seq_length):
     # まず、BERTが学習したデータ形式と合うようにデータを前処理する。
