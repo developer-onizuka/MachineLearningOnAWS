@@ -344,7 +344,30 @@ $ sudo docker run --name nvidia-driver -itd --rm --privileged --pid=host -v /run
 $ sudo docker logs -f nvidia-driver
 $ sudo docker run -it --rm --gpus all -v /home/vagrant:/mnt --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 --name tensorflow nvcr.io/nvidia/tensorflow:23.07-tf2-py3
 ```
+Run BERT-embedding-from-text.ipynb for Data Preparation and Fine-Tuning.ipynb for Fine Tuning.
+```
++---------------------------------------------------------------------------------------+
+Mon Jan  8 13:27:12 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.129.03             Driver Version: 535.129.03   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Quadro P4000                   On  | 00000000:03:00.0 Off |                  N/A |
+| 51%   53C    P0              72W / 105W |   7422MiB /  8192MiB |     66%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
++---------------------------------------------------------------------------------------+
 
+```
 
 # 4. Deploy and Monitoring
 
