@@ -183,7 +183,9 @@ An attempt to interpret which words have similar or distant meanings by vectoriz
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Queen.png" width="320">
 
 The vector value is a value in a general-purpose linguistic knowledge space obtained through pre-learning (learning with a large corpus using specific words from existing texts such as Wikipedia as input and the preceding and following words as training data). <br>
-なお、当該ベクトル値は、事前学習(Wikipediaなどの既存の文章における特定の単語を入力とし、前後の単語を教師データとした大規模なコーパスでの学習)で得られた汎用的な言語知識空間内に定義された値となる。<br>
+なお、当該ベクトル値は、事前学習(Wikipediaなどの既存の文章における特定の単語を入力とし、前後の単語を教師データとした大規模なコーパスでの学習)で得られた汎用的な言語知識空間内に定義された値となる。
+当該デフォルトのBERTモデルをファインチューニングすることで、Amazon Customer Reviews Datasetなどに対するカスタムテキスト分類器を作成する。言い換えると、事前学習済BERTモデルによって学習された言語理解と意味論を再利用することで、新しい領域固有のNLPタスクを学習することが狙い。<br>
+そのために必要になってくる生のテキストをBERT埋め込みに変換するためのスニペットを2-5に示す。<br>
 
 # 2-4-2. Data Pre-Processing with Scikit-learn
 >https://github.com/oreilly-japan/data-science-on-aws-jp <br>
@@ -207,7 +209,7 @@ sklearn_processor = SKLearnProcessor(framework_version='0.20.0',
 ```
 from sagemaker.processing import ProcessingInput, ProcessingOutput
 sklearn_processor.run(
-    code='preprocessing.py',
+    code='preprocess.py',
     # arguments = ['arg1', 'arg2'],
     inputs=[ProcessingInput(
         source='dataset.csv',
@@ -254,9 +256,9 @@ spark_processor.run(
 )
 ```
 
-# 2-4-4. Convert raw text to BERT features
+# 2-5. Convert raw text to BERT features
 Spark snippet to convert raw text to BERT embedding using Transformers provided as a Python library<br>
-Pythonライブラリとして提供されているTransformersを使い、生のテキストをBERT埋め込みに変換するSparkのスニペット
+Pythonライブラリとして提供されているTransformersを使い、生のテキストをBERT埋め込みに変換するSparkのスニペット。2-4-2、2-4-3における"preprocess.py"の中身に相当するもの。<br>
 (1) Define Tokenizer with BERT
 ```
 import tensorflow as tf
