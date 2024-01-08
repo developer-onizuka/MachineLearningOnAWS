@@ -254,9 +254,10 @@ spark_processor.run(
 )
 ```
 
-# 2-4-5. Convert raw text to BERT features
+# 2-4-4. Convert raw text to BERT features
 Spark snippet to convert raw text to BERT embedding using Transformers provided as a Python library<br>
 Pythonライブラリとして提供されているTransformersを使い、生のテキストをBERT埋め込みに変換するSparkのスニペット
+(1) Define Tokenizer with BERT
 ```
 import tensorflow as tf
 import collections
@@ -275,6 +276,28 @@ REVIEW_ID_COLUMN = "review_id"
 
 LABEL_COLUMN = "star_rating"
 LABEL_VALUES = [1, 2, 3, 4, 5]
+```
+(2) Tokenize the Tokenizer defined above
+```
+def convert_input(the_input, max_seq_length):
+    # まず、BERTが学習したデータ形式と合うようにデータを前処理する。
+    # 1. テキストを小文字にする（BERT lowercaseモデルを用いる場合）
+    # 2. トークン化する（例、"sally says hi" -> ["sally", "says", "hi"]）
+    # 3. 単語をWordPieceに分割（例、"calling" -> ["call", "##ing"]）
+    #
+    # この辺りの処理はTransformersライブラリのトークナイザーがまかなってくれます。
+
+    tokens = tokenizer.tokenize(the_input.text)
+    tokens.insert(0, '[CLS]')
+    tokens.append('[SEP]')
+    # print("**{} tokens**\n{}\n".format(len(tokens), tokens))
+
+    encode_plus_tokens = tokenizer.encode_plus(
+        the_input.text,
+        pad_to_max_length=True,
+        max_length=max_seq_length,
+        truncation=True
+    )
 ```
 # 3. Model Train and Tuning
 # 3-1. BERTなどのNLPモデル
