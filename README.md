@@ -193,7 +193,8 @@ The vector value is a value in a general-purpose linguistic knowledge space obta
 
 > https://sagemaker.readthedocs.io/en/v2.5.5/amazon_sagemaker_processing.html<br>
 
-# (1) You can run a scikit-learn script to do data processing on SageMaker using the sagemaker.sklearn.processing.SKLearnProcessor class.
+# (1) Instance for SageMaker
+You can run a scikit-learn script to do data processing on SageMaker using the sagemaker.sklearn.processing.SKLearnProcessor class.
 ```
 from sagemaker.sklearn.processing import SKLearnProcessor
 
@@ -202,7 +203,8 @@ sklearn_processor = SKLearnProcessor(framework_version='0.20.0',
                                      instance_count=1,
                                      instance_type='ml.m5.xlarge')
 ```
-# (2) Then you can run a scikit-learn script preprocessing.py in a processing job. In this example, our script takes one input from S3 and one command-line argument, processes the data, then splits the data into two datasets for output. When the job is finished, we can retrive the output from S3.
+# (2) Input/Output for SageMaker
+Then you can run a scikit-learn script preprocessing.py in a processing job. In this example, our script takes one input from S3 and one command-line argument, processes the data, then splits the data into two datasets for output. When the job is finished, we can retrive the output from S3.
 - データセット（dataset.csv） は自動的にコンテナの中の所定のディレクトリ （/input）にコピーされる。
 - 前処理を行い、データセットを3つに分割し、それぞれのファイルはコンテナの中の /opt/ml/processing/output/train 、 /opt/ml/processing/output/validation 、 /opt/ml/processing/output/test へ保存される。
 - ジョブが完了するとその出力を、S3 の中にある SageMaker のデフォルトのバケットへ自動的にコピーされる。
@@ -258,7 +260,7 @@ spark_processor.run(
 
 # 2-5. Convert raw text to BERT features
 Spark snippet to convert raw text to BERT embedding using Transformers provided as a Python library<br>
-Pythonライブラリとして提供されているTransformersを使い、生のテキストをBERT埋め込みに変換するSparkのスニペット。2-4-2、2-4-3における"preprocess.py"の中身に相当するもの。<br><br>
+Pythonライブラリとして提供されているTransformersを使い、生のテキストをBERT埋め込みに変換するSparkのスニペット。2-4-2、2-4-3における"preprocess.py"の中身に相当するもの。<br>
 # (1) Define Tokenizer with BERT
 ```
 import tensorflow as tf
