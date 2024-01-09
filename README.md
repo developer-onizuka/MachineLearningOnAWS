@@ -10,18 +10,18 @@
 # 2. Data Preparation
 # 2-1. Amazon S3 (Ingest Data into Data Lake)
 Business success is closely tied to the ability of companies to quickly derive value from their data. Therefore, they are moving to highly scalable, available, secure, and flexible data stores, which they call data lakes.<br>
->ビジネスの成功は企業がデータから素早く価値を引き出せるかどうかと密接に関係している。そのため、拡張性、可用性、安全性、柔軟性に優れたデータストアに移行しており、これをデータレイクと呼んでいる。<br><br>
+>ビジネスの成功は企業がデータから素早く価値を引き出せるかどうかと密接に関係している。そのため、拡張性、可用性、安全性、柔軟性に優れたデータストアに移行しており、これをデータレイクと呼んでいる。<br>
 
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/aws-data-lake.png" width="720">
 
 # 2-2. Amazon Athena, Amazon Redshift, Amazon EMR (Data Analytics, Transformation and Validation)
 Before starting machine learning modeling, perform ad hoc exploration and prototyping to understand the data schema and data quality for solving the problem you are facing.<br>
->機械学習のモデリングを始める前に、直面している課題解決に対するデータスキーマとデータ品質を理解するために、アドホックな探索やプロトタイピングを行う。<br><br>
+>機械学習のモデリングを始める前に、直面している課題解決に対するデータスキーマとデータ品質を理解するために、アドホックな探索やプロトタイピングを行う。<br>
 
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SparkAndDeequ.png" width="640">
 
 Data, especially datasets spanning multiple years, is never perfect. Data quality tends to degrade over time as applications are updated or retired. Data quality is not necessarily a priority for upstream application teams, so downstream data engineering teams must deal with bad or missing data.<br>
->データは決して完璧ではなく、数年にも及ぶようなデータセットはなおさらである。アプリケーションの新機能や改廃に伴い、データの品質は時間とともに低下していく傾向にある。上流のアプリケーションチームにとってデータ品質は必ずしも優先事項ではないため、下流のデータエンジニアリングチームが不良データや欠損データを処理する必要がある。<br><br>
+>データは決して完璧ではなく、数年にも及ぶようなデータセットはなおさらである。アプリケーションの新機能や改廃に伴い、データの品質は時間とともに低下していく傾向にある。上流のアプリケーションチームにとってデータ品質は必ずしも優先事項ではないため、下流のデータエンジニアリングチームが不良データや欠損データを処理する必要がある。<br>
 
 >![Processing-1.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Processing-1.png)
 
@@ -326,10 +326,12 @@ After all, pre-traing is learning to acquire general-purpose linguistic knowledg
 
 # 3-2. SageMaker JumpStart (Fine Tuning)
 Fine-tune using the BERT embedding from the review_body text already generated in 2-4 and create a custom classifier that predicts star_rating as shown in the figure below.<br>
->既に2-4で生成済みのreview_bodyテキストからのBERT埋め込みを使用してファインチューニングし、以下図に示すようにstar_ratingを予測するカスタム分類器を作成する。
+>既に2-4で生成済みのreview_bodyテキストからのBERT埋め込みを使用してファインチューニングし、以下図に示すようにstar_ratingを予測するカスタム分類器を作成する。<br>
+
 >![StarRating.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/StarRating.drawio.png)
 
 This additional learning of pre-trained models such as BERT and Chat-GPT using downstream task datasets is called fine-tuning. Task-specific classifiers (heads) have a simple structure consisting of a small number of parameters and require fewer computational resources than those required for pre-training.<br>
+
 >このように、BERTやChat-GPTのように事前学習されたモデルを下流タスクのデータセットで微調整することをファインチューニングと呼ぶ。タスク固有の分類器(ヘッド)は少量のパラメータで構成される単純な構造となり、事前学習で求められる計算リソースに比べて少なくて済む。<br>
 
 >![Vector.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/Vector.drawio.png)
