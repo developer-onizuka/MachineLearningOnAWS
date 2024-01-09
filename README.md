@@ -337,6 +337,7 @@ This additional learning of pre-trained models such as BERT and Chat-GPT using d
 >![Vector.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/Vector.drawio.png)
 
 # 3-3. On My Workstation (Fine Tuning)
+# (1) Run Virtual Machine with Libvirt and Vagrant
 ```
 $ git clone https://github.com/developer-onizuka/MachineLearningOnAWS
 $ cd MachineLearning
@@ -344,12 +345,15 @@ $ virsh pool-start data
 $ vagrant up --provider=libvirt
 $ vagrant ssh
 ```
+# (2) Run Container for Nvidia-driver as a DaemonSet and Container for Tensorflow2
 ```
 $ sudo docker run --name nvidia-driver -itd --rm --privileged --pid=host -v /run/nvidia:/run/nvidia:shared -v /var/log:/var/log  nvcr.io/nvidia/driver:535.129.03-ubuntu20.04
 $ sudo docker logs -f nvidia-driver
 $ sudo docker run -it --rm --gpus all -v /home/vagrant:/mnt --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 --name tensorflow nvcr.io/nvidia/tensorflow:23.07-tf2-py3
 ```
-Run BERT-embedding-from-text.ipynb for Data Preparation and Fine-Tuning.ipynb for Fine Tuning.
+
+# (3) Training on Jupyter Notebook
+Run BERT-embedding-from-text.ipynb for Data Preparation and Fine-Tuning.ipynb for Fine Tuning. You can see GPU works for the training as following:
 ```
 +---------------------------------------------------------------------------------------+
 Mon Jan  8 13:27:12 2024       
@@ -364,16 +368,9 @@ Mon Jan  8 13:27:12 2024
 | 51%   53C    P0              72W / 105W |   7422MiB /  8192MiB |     66%      Default |
 |                                         |                      |                  N/A |
 +-----------------------------------------+----------------------+----------------------+
-                                                                                         
-+---------------------------------------------------------------------------------------+
-| Processes:                                                                            |
-|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
-|        ID   ID                                                             Usage      |
-|=======================================================================================|
-+---------------------------------------------------------------------------------------+
 ```
 
-You can check if the model created works well. You just define predict function with model.predict().<br>
+Check if the model created works well. You just define predict function with model.predict().<br>
 
 ![predict.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/predict.png)
 
