@@ -259,7 +259,8 @@ spark_processor.run(
 ```
 
 # 2-5. Convert raw text to BERT features
-Spark snippet to convert raw text to BERT embedding using Transformers provided as a Python library<br>
+Spark snippet to convert raw text to BERT embedding using Transformers provided as a Python library.<br>
+- - -
 Pythonライブラリとして提供されているTransformersを使い、生のテキストをBERT埋め込みに変換するSparkのスニペット。2-4-2、2-4-3における"preprocess.py"の中身に相当するもの。<br>
 # (1) Define Tokenizer with BERT
 ```
