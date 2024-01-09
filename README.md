@@ -170,22 +170,22 @@ Imputing - fills in missing values for categorical attributes by identifying dat
 
 # 2-4. SageMaker Processing Job (Feature Engineering and Create Training Data)
 Perform feature engineering to create a BERT embedding from the review_body text using the pretrained BERT model and split the dataset into training, validation, and test files.<br>
-事前学習済みBERTモデルを使用して review_body テキストからBERT埋め込みを作成するための特徴量エンジニアリングを実行し、データセットをトレーニング、バリデーション、およびテストファイルに分割する。
+>事前学習済みBERTモデルを使用して review_body テキストからBERT埋め込みを作成するための特徴量エンジニアリングを実行し、データセットをトレーニング、バリデーション、およびテストファイルに分割する。
 
 # 2-4-1. What is vectorization ?
 Run the containerized Scikit-learn execution environment with SageMaker Processing Job and convert text to BERT embedding (vectorization).<br>
-コンテナ化されたScikit-learnの実行環境をSageMaker Processing Jobで実行し、テキストをBERT埋め込み(ベクトル化)に変換。<br>
+>コンテナ化されたScikit-learnの実行環境をSageMaker Processing Jobで実行し、テキストをBERT埋め込み(ベクトル化)に変換。<br>
 
 An attempt to interpret which words have similar or distant meanings by vectorizing words.<br>
-単語をベクトル化することでどの単語同士が近い意味を持つのか遠い意味を持つのかを解釈しようとする試み。<br>
+>単語をベクトル化することでどの単語同士が近い意味を持つのか遠い意味を持つのかを解釈しようとする試み。<br>
 >https://www.youtube.com/watch?v=FoY1rRH2Jc4
 
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Queen.png" width="320">
 
 The vector value is a value in a general-purpose linguistic knowledge space obtained through pre-learning (learning with a large corpus using specific words from existing texts such as Wikipedia as input and the preceding and following words as training data). <br>
-なお、当該ベクトル値は、事前学習(Wikipediaなどの既存の文章における特定の単語を入力とし、前後の単語を教師データとした大規模なコーパスでの学習)で得られた汎用的な言語知識空間内に定義された値となる。
-当該デフォルトのBERTモデルをファインチューニングすることで、Amazon Customer Reviews Datasetなどに対するカスタムテキスト分類器を作成する。言い換えると、事前学習済BERTモデルによって学習された言語理解と意味論を再利用することで、新しい領域固有のNLPタスクを学習することが狙い。<br>
-そのために必要になってくる生のテキストをBERT埋め込みに変換するためのスニペットを2-5に示す。<br>
+>なお、当該ベクトル値は、事前学習(Wikipediaなどの既存の文章における特定の単語を入力とし、前後の単語を教師データとした大規模なコーパスでの学習)で得られた汎用的な言語知識空間内に定義された値となる。
+>当該デフォルトのBERTモデルをファインチューニングすることで、Amazon Customer Reviews Datasetなどに対するカスタムテキスト分類器を作成する。言い換えると、事前学習済BERTモデルによって学習された言語理解と意味論を再利用することで、新しい領域固有のNLPタスクを学習することが狙い。<br>
+>そのために必要になってくる生のテキストをBERT埋め込みに変換するためのスニペットを2-5に示す。<br>
 
 # 2-4-2. Data Pre-Processing with Scikit-learn
 >https://github.com/oreilly-japan/data-science-on-aws-jp <br>
@@ -260,8 +260,7 @@ spark_processor.run(
 
 # 2-5. Convert raw text to BERT features
 Spark snippet to convert raw text to BERT embedding using Transformers provided as a Python library.<br>
-- - -
-Pythonライブラリとして提供されているTransformersを使い、生のテキストをBERT埋め込みに変換するSparkのスニペット。2-4-2、2-4-3における"preprocess.py"の中身に相当するもの。<br>
+>Pythonライブラリとして提供されているTransformersを使い、生のテキストをBERT埋め込みに変換するSparkのスニペット。2-4-2、2-4-3における"preprocess.py"の中身に相当するもの。<br>
 # (1) Define Tokenizer with BERT
 ```
 import tensorflow as tf
@@ -307,9 +306,7 @@ def convert_input(the_input, max_seq_length):
 # 3. Model Train and Tuning
 # 3-1. BERTなどのNLPモデル
 The NLP algorithm called Word2vec takes a sentence from Wikipedia, etc., focuses on a specific word, and uses the words before and after that word as training data to calculate the weight to be given to the middle layer. The space that holds these weights as word-specific vectors is called a corpus, and it functions as a database that collects natural language sentences and usage on a large scale and organizes them so that they can be searched by computer. BERT and Chat-GPT use a method called attention to calculate this weight. The model cannot be created using the computational resources of one or two GPU machines.<br>
-Word2vecと呼ばれるNLPアルゴリズムでは、Wikipediaなどから文章を持ってきて、特定の単語に注目したときに、その単語の前後にある単語を教師データとして中間層に与える重みを計算する。
-この重みを単語固有のベクトルとして保持している空間をコーパスと呼び、自然言語の文章や使い方を大規模に収集しコンピュータで検索できるよう整理されたデータベースとして機能する。
-この重みを計算する手法に、アテンションと呼ばれる手法を使ったものが、BERTやChat-GPTである。1台や2台程度のGPUマシンの計算リソースでは当該モデルを作ることはできない。<br>
+>Word2vecと呼ばれるNLPアルゴリズムでは、Wikipediaなどから文章を持ってきて、特定の単語に注目したときに、その単語の前後にある単語を教師データとして中間層に与える重みを計算する。この重みを単語固有のベクトルとして保持している空間をコーパスと呼び、自然言語の文章や使い方を大規模に収集しコンピュータで検索できるよう整理されたデータベースとして機能する。この重みを計算する手法に、アテンションと呼ばれる手法を使ったものが、BERTやChat-GPTである。1台や2台程度のGPUマシンの計算リソースでは当該モデルを作ることはできない。<br>
 
 例：<br>
 こたつ　で　みかん　を　食べる<br>
@@ -318,17 +315,17 @@ Word2vecと呼ばれるNLPアルゴリズムでは、Wikipediaなどから文章
 <br>
 
 After all, pre-traing is learning to acquire general-purpose linguistic knowledge by learning how to use words based on a large-scale corpus using natural language processing such as BERT.<br>
-結局、事前学習とは、BERTなどの自然言語処理で大規模なコーパスをもとに言葉の使い方を学習することで、汎用的な言語知識(みかんは食べられるものであるという常識)を獲得する学習である。
+>結局、事前学習とは、BERTなどの自然言語処理で大規模なコーパスをもとに言葉の使い方を学習することで、汎用的な言語知識(みかんは食べられるものであるという常識)を獲得する学習である。
 
 >![Word2vec.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/Word2vec.drawio.png)
 
 # 3-2. SageMaker JumpStart (Fine Tuning)
 Fine-tune using the BERT embedding from the review_body text already generated in 2-4 and create a custom classifier that predicts star_rating as shown in the figure below.<br>
-既に2-4で生成済みのreview_bodyテキストからのBERT埋め込みを使用してファインチューニングし、以下図に示すようにstar_ratingを予測するカスタム分類器を作成する。
+>既に2-4で生成済みのreview_bodyテキストからのBERT埋め込みを使用してファインチューニングし、以下図に示すようにstar_ratingを予測するカスタム分類器を作成する。
 >![StarRating.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/StarRating.drawio.png)
 
 This additional learning of pre-trained models such as BERT and Chat-GPT using downstream task datasets is called fine-tuning. Task-specific classifiers (heads) have a simple structure consisting of a small number of parameters and require fewer computational resources than those required for pre-training.<br>
-このように、BERTやChat-GPTのように事前学習されたモデルを下流タスクのデータセットで微調整することをファインチューニングと呼ぶ。タスク固有の分類器(ヘッド)は少量のパラメータで構成される単純な構造となり、事前学習で求められる計算リソースに比べて少なくて済む。
+>このように、BERTやChat-GPTのように事前学習されたモデルを下流タスクのデータセットで微調整することをファインチューニングと呼ぶ。タスク固有の分類器(ヘッド)は少量のパラメータで構成される単純な構造となり、事前学習で求められる計算リソースに比べて少なくて済む。
 
 >![Vector.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/Vector.drawio.png)
 
