@@ -162,7 +162,7 @@ df.select([count(when(col(c).isNull(), c)).alias(c) for c in df.columns]).show()
 
 # 2-3. AWS Glue DataBrew (a Low code and Visual Data Preparation Tool)
 [AWS Glue DataBrew](https://docs.aws.amazon.com/databrew/latest/dg/what-is.html) is a visual data preparation tool that makes it easier for data analysts and data scientists to clean and normalize data to prepare it for analytics and machine learning (ML). <br>
->組み込み変換機能でデータセットの異常を検出し、異常データを変換(無効な値や欠損値を修正)。列の相関性を可視化。<br><br>
+>組み込み変換機能でデータセットの異常を検出し、異常データを変換(無効な値や欠損値を修正)。列の相関性を可視化。<br>
 
 ><img src="https://docs.aws.amazon.com/images/databrew/latest/dg/images/databrew-overview-diagram.png" width="720">
 
@@ -376,6 +376,9 @@ Mon Jan  8 13:27:12 2024
 You can check if the model created works well. You just define predict function with model.predict().<br>
 
 ![predict.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/predict.png)
+
+Even if an unknown word (a word not included in the Customer Review Comment, which is treated as training data) is mixed into the sentence you are trying to predict, the inference will still be done because it is trained using the BERT embedding and the corresponding labels. It is possible.<br>
+>仮に、Predictしようとする文章に未知の単語(教師データとして扱われるCustomer Review Comment内に含まれていない単語)が紛れていたとしても、BERT埋め込みと対応するラベルで学習しているため、推論は可能である。
 
 # 4. Deploy and Monitoring
 
