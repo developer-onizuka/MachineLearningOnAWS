@@ -10,24 +10,24 @@
 # 2. Data Preparation
 # 2-1. Amazon S3 (Ingest Data into Data Lake)
 Business success is closely tied to the ability of companies to quickly derive value from their data. Therefore, they are moving to highly scalable, available, secure, and flexible data stores, which they call data lakes.<br>
-ビジネスの成功は企業がデータから素早く価値を引き出せるかどうかと密接に関係している。そのため、拡張性、可用性、安全性、柔軟性に優れたデータストアに移行しており、これをデータレイクと呼んでいる。
+>ビジネスの成功は企業がデータから素早く価値を引き出せるかどうかと密接に関係している。そのため、拡張性、可用性、安全性、柔軟性に優れたデータストアに移行しており、これをデータレイクと呼んでいる。<br>
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/aws-data-lake.png" width="720">
 
 # 2-2. Amazon Athena, Amazon Redshift, Amazon EMR (Data Analytics, Transformation and Validation)
 Before starting machine learning modeling, perform ad hoc exploration and prototyping to understand the data schema and data quality for solving the problem you are facing.<br>
-機械学習のモデリングを始める前に、直面している課題解決に対するデータスキーマとデータ品質を理解するために、アドホックな探索やプロトタイピングを行う。
+>機械学習のモデリングを始める前に、直面している課題解決に対するデータスキーマとデータ品質を理解するために、アドホックな探索やプロトタイピングを行う。<br>
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SparkAndDeequ.png" width="640">
 
 Data, especially datasets spanning multiple years, is never perfect. Data quality tends to degrade over time as applications are updated or retired. Data quality is not necessarily a priority for upstream application teams, so downstream data engineering teams must deal with bad or missing data.<br>
-データは決して完璧ではなく、数年にも及ぶようなデータセットはなおさらである。アプリケーションの新機能や改廃に伴い、データの品質は時間とともに低下していく傾向にある。上流のアプリケーションチームにとってデータ品質は必ずしも優先事項ではないため、下流のデータエンジニアリングチームが不良データや欠損データを処理する必要がある。
+>データは決して完璧ではなく、数年にも及ぶようなデータセットはなおさらである。アプリケーションの新機能や改廃に伴い、データの品質は時間とともに低下していく傾向にある。上流のアプリケーションチームにとってデータ品質は必ずしも優先事項ではないため、下流のデータエンジニアリングチームが不良データや欠損データを処理する必要がある。<br>
 >![Processing-1.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Processing-1.png)
 
 Amazon SageMaker processing jobs can run Python scripts on container images using familiar open sources such as Pandas, Scikit-learn, Apache Spark, TensorFlow and XGboost.<br>
-そこで、Amazon SageMaker Processing jobは、Pandas、Scikit-learnやApache Spark、TensorFlow、XGboostなどの使い慣れたオープンソースを使って、Pythonスクリプトをコンテナイメージ上で実行することができる。<br>
+>そこで、Amazon SageMaker Processing jobは、Pandas、Scikit-learnやApache Spark、TensorFlow、XGboostなどの使い慣れたオープンソースを使って、Pythonスクリプトをコンテナイメージ上で実行することができる。<br>
 
 **- AWS Deequ**<br>
 Deequ is a library for analyzing data quality and detecting anomalies using Apache Spark.<br>
-Deequは、Apache Sparkを使ってデータの品質を分析し、異常を検知するためのライブラリ。
+>Deequは、Apache Sparkを使ってデータの品質を分析し、異常を検知するためのライブラリ。
 
 # 2-2-1. Example using Pandas
 See Fruits.ipynb in this repository.
@@ -159,7 +159,7 @@ df.select([count(when(col(c).isNull(), c)).alias(c) for c in df.columns]).show()
 
 # 2-3. AWS Glue DataBrew (a Low code and Visual Data Preparation Tool)
 [AWS Glue DataBrew](https://docs.aws.amazon.com/databrew/latest/dg/what-is.html) is a visual data preparation tool that makes it easier for data analysts and data scientists to clean and normalize data to prepare it for analytics and machine learning (ML). <br>
-組み込み変換機能でデータセットの異常を検出し、異常データを変換(無効な値や欠損値を修正)。列の相関性を可視化。<br>
+>組み込み変換機能でデータセットの異常を検出し、異常データを変換(無効な値や欠損値を修正)。列の相関性を可視化。<br>
 ><img src="https://docs.aws.amazon.com/images/databrew/latest/dg/images/databrew-overview-diagram.png" width="720">
 
 Column statistics – On this tab, you can find detailed statistics about each column in your dataset, as shown following.
@@ -183,8 +183,7 @@ An attempt to interpret which words have similar or distant meanings by vectoriz
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Queen.png" width="320">
 
 The vector value is a value in a general-purpose linguistic knowledge space obtained through pre-learning (learning with a large corpus using specific words from existing texts such as Wikipedia as input and the preceding and following words as training data). <br>
->なお、当該ベクトル値は、事前学習(Wikipediaなどの既存の文章における特定の単語を入力とし、前後の単語を教師データとした大規模なコーパスでの学習)で得られた汎用的な言語知識空間内に定義された値となる。
->当該デフォルトのBERTモデルをファインチューニングすることで、Amazon Customer Reviews Datasetなどに対するカスタムテキスト分類器を作成する。言い換えると、事前学習済BERTモデルによって学習された言語理解と意味論を再利用することで、新しい領域固有のNLPタスクを学習することが狙い。<br>
+>なお、当該ベクトル値は、事前学習(Wikipediaなどの既存の文章における特定の単語を入力とし、前後の単語を教師データとした大規模なコーパスでの学習)で得られた汎用的な言語知識空間内に定義された値となる。当該デフォルトのBERTモデルをファインチューニングすることで、Amazon Customer Reviews Datasetなどに対するカスタムテキスト分類器を作成する。言い換えると、事前学習済BERTモデルによって学習された言語理解と意味論を再利用することで、新しい領域固有のNLPタスクを学習することが狙い。<br>
 >そのために必要になってくる生のテキストをBERT埋め込みに変換するためのスニペットを2-5に示す。<br>
 
 # 2-4-2. Data Pre-Processing with Scikit-learn
@@ -203,7 +202,7 @@ sklearn_processor = SKLearnProcessor(framework_version='0.20.0',
                                      instance_count=1,
                                      instance_type='ml.m5.xlarge')
 ```
-# (2) Input/Output for SageMaker
+# (2) Run and Input/Output for SageMaker
 Then you can run a scikit-learn script preprocessing.py in a processing job. In this example, our script takes one input from S3 and one command-line argument, processes the data, then splits the data into two datasets for output. When the job is finished, we can retrive the output from S3.
 - データセット（dataset.csv） は自動的にコンテナの中の所定のディレクトリ （/input）にコピーされる。
 - 前処理を行い、データセットを3つに分割し、それぞれのファイルはコンテナの中の /opt/ml/processing/output/train 、 /opt/ml/processing/output/validation 、 /opt/ml/processing/output/test へ保存される。
@@ -227,6 +226,7 @@ SageMakerで実行されるコンテナのファイルロケーションはS3に
 >![SageMakerFileLocation.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/SageMakerFileLocation.drawio.png)
 
 # 2-4-3. Data Pre-Processing with Spark
+# (1) Instance for SageMaker
 ```
 from sagemaker.processing import ScriptProcessor, ProcessingInput
 
@@ -241,6 +241,7 @@ spark_processor = ScriptProcessor(
     env={"mode": "python"},
 )
 ```
+# (2) Run and Input/Output for SageMaker
 ```
 spark_processor.run(
     code="preprocess.py",
@@ -325,7 +326,7 @@ Fine-tune using the BERT embedding from the review_body text already generated i
 >![StarRating.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/StarRating.drawio.png)
 
 This additional learning of pre-trained models such as BERT and Chat-GPT using downstream task datasets is called fine-tuning. Task-specific classifiers (heads) have a simple structure consisting of a small number of parameters and require fewer computational resources than those required for pre-training.<br>
->このように、BERTやChat-GPTのように事前学習されたモデルを下流タスクのデータセットで微調整することをファインチューニングと呼ぶ。タスク固有の分類器(ヘッド)は少量のパラメータで構成される単純な構造となり、事前学習で求められる計算リソースに比べて少なくて済む。
+>このように、BERTやChat-GPTのように事前学習されたモデルを下流タスクのデータセットで微調整することをファインチューニングと呼ぶ。タスク固有の分類器(ヘッド)は少量のパラメータで構成される単純な構造となり、事前学習で求められる計算リソースに比べて少なくて済む。<br>
 
 >![Vector.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/Vector.drawio.png)
 
