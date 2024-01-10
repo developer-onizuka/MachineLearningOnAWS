@@ -379,7 +379,7 @@ Even if an unknown word (a word not included in the Customer Review Comment, whi
 
 # 4. Deploy and Monitoring
 
-><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint2.png" width="720">
+><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint2.png" width="640">
 
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint.png" width="720">
 
