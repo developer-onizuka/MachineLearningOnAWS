@@ -201,7 +201,7 @@ data = [
     [
         4,
         "ABCD12345",
-        """This is great item.""",
+        """This is great item!""",
     ],
 ]
 ```
