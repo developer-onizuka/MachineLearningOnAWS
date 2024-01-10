@@ -379,7 +379,7 @@ Even if an unknown word (a word not included in the Customer Review Comment, whi
 
 # 4. Deploy and Monitoring
 # 4-1. Deploy your customized model to the SageMaker
-><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint2.png" width="480">
+><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint2.png" width="520">
 
 # 4-2. Release the model as a Service
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint.png" width="640">
