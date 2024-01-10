@@ -351,7 +351,8 @@ This additional learning of pre-trained models such as BERT and Chat-GPT using d
 >![Vector.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/Vector.drawio.png)
 
 # 3-3. On My Workstation (Fine Tuning)
-# (1) Run Virtual Machine with Libvirt and Vagrant
+# (1) Run Virtual Machine with Libvirt and Vagrant (Optional Step)
+Use Vagrantfile and create Virtual Machine if you don't have any environment such as WSL.
 ```
 $ git clone https://github.com/developer-onizuka/MachineLearningOnAWS
 $ cd MachineLearning
@@ -360,6 +361,7 @@ $ vagrant up --provider=libvirt
 $ vagrant ssh
 ```
 # (2) Run Container for Nvidia-driver as a DaemonSet and Container for Tensorflow2
+Use the following Containers are very useful for this trial.
 ```
 $ sudo docker run --name nvidia-driver -itd --rm --privileged --pid=host -v /run/nvidia:/run/nvidia:shared -v /var/log:/var/log  nvcr.io/nvidia/driver:535.129.03-ubuntu20.04
 $ sudo docker logs -f nvidia-driver
