@@ -378,9 +378,10 @@ Even if an unknown word (a word not included in the Customer Review Comment, whi
 >仮に、Predictしようとする文章に未知の単語(教師データとして扱われるCustomer Review Comment内に含まれていない単語)が紛れていたとしても、BERT埋め込みと対応するラベルで学習しているため、推論は可能である。
 
 # 4. Deploy and Monitoring
-
+# 4-1. Deploy your customized model to the SageMaker
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint2.png" width="640">
 
+# 4-2. Release the model as a Service
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint.png" width="720">
 
 
