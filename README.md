@@ -386,3 +386,5 @@ Even if an unknown word (a word not included in the Customer Review Comment, whi
 
 # 4-3. Monitoring
 >本番環境にデプロイされたモデルを、特徴量とターゲット分布の両面でスキューとドリフトを検出し、モニタリングする。これらの分布に変化が検出されると、モデルのパフォーマンスが低下し始める可能性があるため、本番環境データを使用してモデルを評価する必要がある。
+
+><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/ModelMonitoring.png" width="640">
