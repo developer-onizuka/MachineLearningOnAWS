@@ -385,6 +385,8 @@ Even if an unknown word (a word not included in the Customer Review Comment, whi
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint.png" width="720">
 
 # 4-3. Monitoring
->本番環境にデプロイされたモデルを、特徴量とターゲット分布の両面でスキューとドリフトを検出し、モニタリングする。これらの分布に変化が検出されると、モデルのパフォーマンスが低下し始める可能性があるため、本番環境データを使用してモデルを評価する必要がある。
+
+Detect and monitor skew and drift in both features and target distribution of models deployed to production environments. If changes in these distributions are detected, the model's performance may start to degrade, so production data should be used to evaluate the model. Predictive models need to be continually retrained and redeployed to accommodate different drift scenarios.<br>
+>本番環境にデプロイされたモデルを、特徴量とターゲット分布の両面でスキューとドリフト(時代の変化に伴うデータや特徴量の変化)を検出し、モニタリングする。これらの分布に変化が検出されると、モデルのパフォーマンスが低下し始める可能性があるため、本番環境データを使用してモデルを評価する必要がある。様々なドリフトシナリオに対応するため、予測モデルを継続して再訓練し、再デプロイを行う必要がある。
 
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/ModelMonitoring.png" width="720">
