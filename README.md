@@ -200,7 +200,7 @@ The vector value is a value in a general-purpose linguistic knowledge space obta
     [
         4,
         "ABCD12345",
-        """This is great item!""",
+        """this is great item!""",
     ],
 ```
 ```
