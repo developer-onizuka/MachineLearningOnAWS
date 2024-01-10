@@ -365,7 +365,7 @@ Use the following Containers are very useful for this trial.
 ```
 $ sudo docker run --name nvidia-driver -itd --rm --privileged --pid=host -v /run/nvidia:/run/nvidia:shared -v /var/log:/var/log  nvcr.io/nvidia/driver:535.129.03-ubuntu20.04
 $ sudo docker logs -f nvidia-driver
-$ sudo docker run -it --rm --gpus all -v /home/vagrant:/mnt --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 --name tensorflow nvcr.io/nvidia/tensorflow:23.07-tf2-py3
+$ sudo docker run -it --rm --gpus all -v /home/vagrant:/mnt --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 --name tensorflow nvcr.io/nvidia/tensorflow:23.07-tf2-py3 jupyter-notebook
 ```
 
 # (3) Training on Jupyter Notebook
