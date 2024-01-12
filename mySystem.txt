@@ -1,0 +1,90 @@
+System:
+  Kernel: 5.15.0-91-generic x86_64 bits: 64 compiler: gcc v: 11.4.0 Desktop: Cinnamon 5.6.8
+    tk: GTK 3.24.33 wm: muffin dm: LightDM Distro: Linux Mint 21.1 Vera base: Ubuntu 22.04 jammy
+Machine:
+  Type: Desktop System: Dell product: Precision Tower 3620 v: N/A serial: <superuser required>
+    Chassis: type: 3 serial: <superuser required>
+  Mobo: Dell model: 0MWYPT v: A05 serial: <superuser required> UEFI: Dell v: 2.27.0
+    date: 09/17/2023
+CPU:
+  Info: quad core model: Intel Xeon E3-1270 v5 bits: 64 type: MT MCP arch: Skylake-S rev: 3 cache:
+    L1: 256 KiB L2: 1024 KiB L3: 8 MiB
+  Speed (MHz): avg: 3765 high: 3797 min/max: 800/4000 cores: 1: 3754 2: 3750 3: 3720 4: 3773
+    5: 3748 6: 3797 7: 3794 8: 3786 bogomips: 57600
+  Flags: avx avx2 ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx
+Graphics:
+  Device-1: NVIDIA GP104GL [Quadro P4000] driver: vfio-pci v: N/A pcie: speed: 8 GT/s lanes: 1
+    bus-ID: 01:00.0 chip-ID: 10de:1bb1
+  Device-2: NVIDIA GP107GL [Quadro P600] vendor: Dell driver: nvidia v: 525.147.05 pcie:
+    speed: 2.5 GT/s lanes: 4 ports: active: none off: DP-2 empty: DP-1,DP-3,DP-4 bus-ID: 05:00.0
+    chip-ID: 10de:1cb2
+  Display: x11 server: X.Org v: 1.21.1.4 driver: X: loaded: nvidia
+    unloaded: fbdev,modesetting,nouveau,vesa gpu: vfio-pci,nvidia display-ID: :0 screens: 1
+  Screen-1: 0 s-res: 1920x1080 s-dpi: 101
+  Monitor-1: DP-2 res: 1920x1080 dpi: 102 diag: 551mm (21.7")
+  OpenGL: renderer: Quadro P600/PCIe/SSE2 v: 4.6.0 NVIDIA 525.147.05 direct render: Yes
+Audio:
+  Device-1: Intel 100 Series/C230 Series Family HD Audio vendor: Dell driver: snd_hda_intel
+    v: kernel bus-ID: 00:1f.3 chip-ID: 8086:a170
+  Device-2: NVIDIA GP104 High Definition Audio driver: vfio-pci pcie: speed: 8 GT/s lanes: 1
+    bus-ID: 01:00.1 chip-ID: 10de:10f0
+  Device-3: NVIDIA GP107GL High Definition Audio vendor: Dell driver: snd_hda_intel v: kernel
+    pcie: speed: 8 GT/s lanes: 4 bus-ID: 05:00.1 chip-ID: 10de:0fb9
+  Sound Server-1: ALSA v: k5.15.0-91-generic running: yes
+  Sound Server-2: PulseAudio v: 15.99.1 running: yes
+  Sound Server-3: PipeWire v: 0.3.48 running: yes
+Network:
+  Device-1: Intel Ethernet I219-LM vendor: Dell driver: e1000e v: kernel port: N/A bus-ID: 00:1f.6
+    chip-ID: 8086:15b7
+  IF: enp0s31f6 state: down mac: <filter>
+  Device-2: Intel I350 Gigabit Network driver: igb v: kernel pcie: speed: 5 GT/s lanes: 4
+    port: N/A bus-ID: 06:00.0 chip-ID: 8086:1521
+  IF: enp6s0f0 state: down mac: <filter>
+  Device-3: Intel I350 Gigabit Network driver: igb v: kernel pcie: speed: 5 GT/s lanes: 4
+    port: N/A bus-ID: 06:00.1 chip-ID: 8086:1521
+  IF: enp6s0f1 state: up speed: 1000 Mbps duplex: full mac: <filter>
+  IF-ID-1: virbr0 state: down mac: <filter>
+  IF-ID-2: virbr1 state: up speed: 10 Mbps duplex: unknown mac: <filter>
+  IF-ID-3: virbr2 state: up speed: 10 Mbps duplex: unknown mac: <filter>
+  IF-ID-4: virbr3 state: up speed: 10 Mbps duplex: unknown mac: <filter>
+  IF-ID-5: vnet0 state: unknown speed: 10 Mbps duplex: full mac: <filter>
+  IF-ID-6: vnet1 state: unknown speed: 10 Mbps duplex: full mac: <filter>
+  IF-ID-7: vnet2 state: unknown speed: 10 Mbps duplex: full mac: <filter>
+Bluetooth:
+  Device-1: Cambridge Silicon Radio Bluetooth Dongle (HCI mode) type: USB driver: btusb v: 0.8
+    bus-ID: 1-3:2 chip-ID: 0a12:0001
+  Report: hciconfig ID: hci0 rfk-id: 0 state: up address: <filter> bt-v: 2.1 lmp-v: 4.0
+    sub-v: 22bb
+Drives:
+  Local Storage: total: 935.27 GiB used: 154.29 GiB (16.5%)
+  ID-1: /dev/nvme0n1 vendor: KLEVV model: CRAS C710 M.2 NVMe SSD 256GB size: 238.47 GiB
+    speed: 31.6 Gb/s lanes: 4 serial: <filter> temp: 35.9 C
+  ID-2: /dev/sda vendor: Transcend model: TS120GSSD220S size: 111.79 GiB speed: 6.0 Gb/s
+    serial: <filter>
+  ID-3: /dev/sdb vendor: Western Digital model: WD5000AZLX-75K2TA0 size: 465.76 GiB
+    speed: 6.0 Gb/s serial: <filter>
+  ID-4: /dev/sdc vendor: Toshiba model: THNSNJ128GCST size: 119.24 GiB speed: 6.0 Gb/s
+    serial: <filter>
+Partition:
+  ID-1: / size: 108.98 GiB used: 34.78 GiB (31.9%) fs: ext4 dev: /dev/sda2
+  ID-2: /boot/efi size: 511 MiB used: 23.9 MiB (4.7%) fs: vfat dev: /dev/sda1
+Swap:
+  ID-1: swap-1 type: file size: 2 GiB used: 256 KiB (0.0%) priority: -2 file: /swapfile
+Sensors:
+  System Temperatures: cpu: 54.0 C pch: 78.5 C mobo: 31.0 C gpu: nvidia temp: 41 C
+  Fan Speeds (RPM): cpu: 976 mobo: 1292 gpu: nvidia fan: 34%
+Repos:
+  Packages: apt: 2629
+  No active apt repos in: /etc/apt/sources.list
+  Active apt repos in: /etc/apt/sources.list.d/google-chrome.list
+    1: deb [arch=amd64] https: //dl.google.com/linux/chrome/deb/ stable main
+  Active apt repos in: /etc/apt/sources.list.d/official-package-repositories.list
+    1: deb http: //ftp.jaist.ac.jp/pub/Linux/linuxmint/packages vera main upstream import backport
+    2: deb http: //ftp.tsukuba.wide.ad.jp/Linux/ubuntu jammy main restricted universe multiverse
+    3: deb http: //ftp.tsukuba.wide.ad.jp/Linux/ubuntu jammy-updates main restricted universe multiverse
+    4: deb http: //ftp.tsukuba.wide.ad.jp/Linux/ubuntu jammy-backports main restricted universe multiverse
+    5: deb http: //security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+Info:
+  Processes: 331 Uptime: 1d 4h 27m Memory: 62.6 GiB used: 39.58 GiB (63.2%) Init: systemd v: 249
+  runlevel: 5 Compilers: gcc: 11.4.0 alt: 11/12 Client: Cinnamon v: 5.6.8 inxi: 3.3.13
+
