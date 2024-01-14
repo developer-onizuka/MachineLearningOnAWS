@@ -406,3 +406,11 @@ Detect and monitor skew and drift in both features and target distribution of mo
 >本番環境にデプロイされたモデルを、特徴量とターゲット分布の両面でスキューとドリフト(時代の変化に伴うデータや特徴量の変化)を検出し、モニタリングする。これらの分布に変化が検出されると、モデルのパフォーマンスが低下し始める可能性があるため、本番環境データを使用してモデルを評価する必要がある。様々なドリフトシナリオに対応するため、予測モデルを継続して再訓練し、再デプロイを行う必要がある。
 
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/ModelMonitoring.png" width="720">
+
+# 5. Summary
+For humans, language learning is something that each individual person does, and after learning the language and basic academic skills, they are required to do any complex special work. At that time, it is possible to contribute to improving work efficiency by additionally learning about special tasks. When learning a special task, you can fine-tune the special task in your own words by linking it to your own experience, such as asking, _**"Is this the same as that?"**_
+In other words, if you force someone who has not acquired any language or basic academic skills to learn special tasks, it is likely that they will only get superficial interpretations and inaccurate results.<br>
+
+人間において、言葉の学習はそれぞれ個人が行うことであり、言葉や基礎学力習得の後に任意の複雑な特殊業務をすることになる。その際、特殊業務についても追加で学習をすることで業務の効率化などに貢献することが可能である。
+特殊業務を習得する際には、「これはあれと同じか？」など自分の経験に紐づけすることで、その特殊業務を自分の言葉でファインチューニングすることになる。
+つまり、なんら言語や基礎学力の習得がない人間に、無理やり特殊業務の習得をさせても表面的な解釈や精度の低い結果しかでない可能性は十分高い。
