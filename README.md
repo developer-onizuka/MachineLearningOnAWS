@@ -9,7 +9,7 @@
 
 # 1-1. My Python codes for AWS Instance and some small environments
 
-|  | AWS | Small Environment * |
+|  | Large instance | Small instance * |
 | --- | --- | --- |
 | **Data Analytics, Transformation and Validation** | [amazon_reviews_parquet.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet.ipynb) | [amazon_reviews_parquet_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet_small.ipynb) |
 | **Create Training Data** | [BERT-embedding-from-text.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text.ipynb) | [BERT-embedding-from-text_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text_small.ipynb) |
