@@ -403,7 +403,7 @@ Even if an unknown word (a word not included in the Customer Review Comment, whi
 # 4-3. Monitoring
 
 Detect and monitor skew and drift in both features and target distribution of models deployed to production environments. If changes in these distributions are detected, the model's performance may start to degrade, so production data should be used to evaluate the model. Predictive models need to be continually retrained and redeployed to accommodate different drift scenarios.<br>
->本番環境にデプロイされたモデルを、特徴量とターゲット分布の両面でスキューとドリフト(時代の変化に伴うデータや特徴量の変化)を検出し、モニタリングする。これらの分布に変化が検出されると、モデルのパフォーマンスが低下し始める可能性があるため、本番環境データを使用してモデルを評価する必要がある。様々なドリフトシナリオに対応するため、予測モデルを継続して再訓練し、再デプロイを行う必要がある。
+>本番環境にデプロイされたモデルを、特徴量のスキューとドリフト(時代の変化に伴うデータや特徴量の変化)を検出し、モニタリングする。特徴量の分布に変化が発生すると、モデルのパフォーマンスが低下し始める可能性があるため、本番環境データを使用してモデルを評価する必要がある。様々なドリフトシナリオに対応するため、予測モデルを継続して再訓練し、再デプロイを行う必要がある。
 
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/ModelMonitoring.png" width="720">
 
@@ -417,4 +417,4 @@ For humans, language learning is something that each individual person does, and
 In other words, if you force someone who has not acquired any language or basic academic skills to learn special tasks, it is likely that they will only get superficial interpretations and inaccurate results.<br>
 It is also same as for fine-tuning in large-scale language models, and by embedding BERT, we can preemptively complete the process of language learning that humans have traditionally performed implicitly. After that, you can optimize your own domain by performing arbitrary fine-tuning.<br>
 
->人間における言語の学習はそれぞれ個人が行うことであり、その言語や基礎学力習得の後に任意の複雑な特殊業務を行うことが多い。その際、特殊業務について、自分の人生経験に対して追加の学習をすることで業務の効率化を行う。特殊業務を習得する際には、「これはあれと同じか？」など自分の経験に紐づけすることで、その特殊業務を自分の言葉でファインチューニングがなされる。<br>大規模言語モデルにおけるファインチューニングも同様であり、BERT埋め込みにより、これまで人間が暗黙的に行ってきた言語学習に相当する行為を事前に終わらせてしまう。そのうえで任意のファインチューニングをすることで独自ドメインの最適化を図ることになる。
+>人間における言語の学習はそれぞれ個人が行うことであり、多くの場合その言語や基礎学力習得の後に任意の職業訓練がなされる。その際、自分の人生経験に対して追加の学習をすることでより効果的な訓練につながる。例えば、「これはあれと同じか？」など自分の経験に紐づけすることで、その職業訓練では自分の言葉で解釈されることで、よりよいスキルセットが身につくはずである。<br>大規模言語モデルにおけるファインチューニングも同様であり、BERT埋め込みにより、これまで人間が暗黙的に行ってきた言語学習に相当する行為を事前に終わらせたうえで、任意のファインチューニングをすることで独自ドメインの最適化を図ることになる。
