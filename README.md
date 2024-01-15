@@ -7,7 +7,7 @@
 # 1. Pipeline of Data Science and Workflow
 >![WorkFlow.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/WorkFlow.drawio.png)
 
-# The followings are my Python codes to do Machine Learning On AWS:
+# 1-1. The followings are my Python codes for Machine Learning On AWS:
 **- Data Analytics, Transformation and Validation**
 > [amazon_reviews_parquet.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet.ipynb)
 
@@ -21,7 +21,7 @@
 > [load_model.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model.ipynb)
 
 
-# Use the following Python code for some small environments (Machine whose memory is less than 32GB)
+# 1-2. Use the following Python code for some small environments as a test (Machine whose memory is less than 32GB)
 - [amazon_reviews_parquet_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet_small.ipynb)
 - [BERT-embedding-from-text_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text_small.ipynb)
 - [Fine-Tuning_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning_small.ipynb)
