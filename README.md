@@ -20,13 +20,15 @@
 **- Deploy and Monitoring**
 > [load_model.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model.ipynb)
 
-<br>
 
 # Use the following Python code for some small environments (Machine whose memory is less than 32GB)
 - [amazon_reviews_parquet_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet_small.ipynb)
 - [BERT-embedding-from-text_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text_small.ipynb)
 - [Fine-Tuning_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning_small.ipynb)
 - [load_model_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model_small.ipynb)
+
+<br>
+
 
 # 2. Data Preparation
 # 2-1. Amazon S3 (Ingest Data into Data Lake)
