@@ -10,10 +10,13 @@
 # 1-1. My Python codes for Machine Learning On AWS:
 **- Data Analytics, Transformation and Validation**
 > [amazon_reviews_parquet.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet.ipynb)
+
 **- Create Training Data**
 > [BERT-embedding-from-text.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text.ipynb)
+
 **- Model Training and Model Tuning**
 > [Fine-Tuning.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning.ipynb)
+
 **- Deploy and Monitoring**
 > [load_model.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model.ipynb)
 
