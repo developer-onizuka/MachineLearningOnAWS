@@ -7,21 +7,17 @@
 # 1. Pipeline of Data Science and Workflow
 >![WorkFlow.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/WorkFlow.drawio.png)
 
-# 1-1. The followings are my Python codes for Machine Learning On AWS:
+# 1-1. My Python codes for Machine Learning On AWS:
 **- Data Analytics, Transformation and Validation**
 > [amazon_reviews_parquet.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet.ipynb)
-
 **- Create Training Data**
 > [BERT-embedding-from-text.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text.ipynb)
-
 **- Model Training and Model Tuning**
 > [Fine-Tuning.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning.ipynb)
-
 **- Deploy and Monitoring**
 > [load_model.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model.ipynb)
 
-
-# 1-2. Use the following Python code for some small environments as a test (Machine whose memory is less than 32GB)
+# 1-2. Use the following Python code for some small environments as a test (Machine whose memory size is less than 32GB)
 - [amazon_reviews_parquet_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet_small.ipynb)
 - [BERT-embedding-from-text_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text_small.ipynb)
 - [Fine-Tuning_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning_small.ipynb)
