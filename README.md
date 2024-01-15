@@ -1,4 +1,4 @@
-# Goal
+# 0. Goal
 **- Understand the difference between Pre-Training and Fine-Tuning** <br>
 **- Understand what is Feature Engineering** <br>
 
