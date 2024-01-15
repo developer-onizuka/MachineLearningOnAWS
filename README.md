@@ -8,17 +8,20 @@
 >![WorkFlow.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/WorkFlow.drawio.png)
 
 The followings are my Python codes to do Machine Learning On AWS:
-# (1) Data Analytics, Transformation and Validation
+**- Data Analytics, Transformation and Validation**
 > [amazon_reviews_parquet.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet.ipynb)
 
-# (2) Create Training Data
+**- Create Training Data**
 > [BERT-embedding-from-text.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text.ipynb)
 
-# (3) Model Training and Model Tuning
+**- Model Training and Model Tuning**
 > [Fine-Tuning.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning.ipynb)
 
-# (4) Deploy and Monitoring
+**- Deploy and Monitoring**
 > [load_model.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model.ipynb)
+
+<br>
+
 
 # 2. Data Preparation
 # 2-1. Amazon S3 (Ingest Data into Data Lake)
