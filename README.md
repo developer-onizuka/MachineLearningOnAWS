@@ -7,24 +7,17 @@
 # 1. Pipeline of Data Science and Workflow
 >![WorkFlow.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/WorkFlow.drawio.png)
 
-# 1-1. My Python codes for Machine Learning On AWS:
-**- Data Analytics, Transformation and Validation**
-- [amazon_reviews_parquet.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet.ipynb)
+# 1-1. My Python codes for Machine Learning On AWS and some small environments
 
-**- Create Training Data**
-- [BERT-embedding-from-text.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text.ipynb)
+|  | AWS | Small Environment * |
+| --- | --- | --- |
+| **Data Analytics, Transformation and Validation** | [amazon_reviews_parquet.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet.ipynb) | [amazon_reviews_parquet_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet_small.ipynb) |
+| **Create Training Data** | [BERT-embedding-from-text.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text.ipynb) | [BERT-embedding-from-text_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text_small.ipynb) |
+| **Model Training and Model Tuning** | [Fine-Tuning.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning.ipynb) | [Fine-Tuning_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning_small.ipynb) |
+| **Deploy and Monitoring** | [load_model.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model.ipynb) | [load_model_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model_small.ipynb) |
 
-**- Model Training and Model Tuning**
-- [Fine-Tuning.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning.ipynb)
+* : Machine whose memory size is less than 32GB
 
-**- Deploy and Monitoring**
-- [load_model.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model.ipynb)
-
-# 1-2. Use the following Python code for some small environments as a test (Machine whose memory size is less than 32GB)
-- [amazon_reviews_parquet_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet_small.ipynb)
-- [BERT-embedding-from-text_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text_small.ipynb)
-- [Fine-Tuning_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning_small.ipynb)
-- [load_model_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model_small.ipynb)
 
 <br>
 
