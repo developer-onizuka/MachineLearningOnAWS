@@ -407,6 +407,8 @@ Detect and monitor skew and drift in both features and target distribution of mo
 
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/ModelMonitoring.png" width="720">
 
+>![heatmap.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/heatmap.png)
+
 # 5. Summary
 For humans, language learning is something that each individual person does, and after learning the language and basic academic skills, they are required to do any complex special work. At that time, it is possible to contribute to improving work efficiency by additionally learning about special tasks. When learning a special task, you can fine-tune the special task in your own words by linking it to your own experience, such as asking, _**"Is this the same as that?"**_
 In other words, if you force someone who has not acquired any language or basic academic skills to learn special tasks, it is likely that they will only get superficial interpretations and inaccurate results.<br>
