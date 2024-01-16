@@ -22,6 +22,7 @@
      See it in the link below:
      https://github.com/developer-onizuka/NvidiaDockerOnWSL
 ```
+>https://github.com/BandaiNamcoResearchInc/DistilBERT-base-jp/blob/main/docs/GUIDE.md
 
 # 2. Data Preparation
 # 2-1. Amazon S3 (Ingest Data into Data Lake)
