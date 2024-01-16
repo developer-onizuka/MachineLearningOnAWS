@@ -16,12 +16,11 @@
 | **Model Training and Model Tuning** | [Fine-Tuning.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning.ipynb) | [Fine-Tuning_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning_small.ipynb) | nvcr.io/nvidia/tensorflow:23.07-tf2-py3 |
 | **Deploy and Monitoring** | [load_model.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model.ipynb) | [load_model_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model_small.ipynb) | nvcr.io/nvidia/tensorflow:23.07-tf2-py3 |
 ```
-*  : Machine whose memory size is less than 32GB
-** : You can run these familiar containers on SageMaker as a custom container
+*  : Machine whose memory size is less than 32GB or WSL2 Environment.
+     If you wanna create your own evironment for container, then you can create it so easily on your Windows10 machine. See it the link below:
+     https://github.com/developer-onizuka/NvidiaDockerOnWSL
+** : You can run these familiar containers on SageMaker as a custom container.
 ```
-
-<br>
-
 
 # 2. Data Preparation
 # 2-1. Amazon S3 (Ingest Data into Data Lake)
@@ -52,10 +51,6 @@ Deequ is a library for analyzing data quality and detecting anomalies using Apac
 See Fruits.ipynb in this repository.
 
 # 2-2-2. Example using Apache Spark with Amazon review Dataset
-You can learn about Apach Spark [here](https://github.com/developer-onizuka/HiveMetastore?tab=readme-ov-file#metastore-in-apache-spark).
-If you wanna create your own evironment for container, then you can create it so easily on your windows10 machine. See it the link below:<br>
->https://github.com/developer-onizuka/NvidiaDockerOnWSL<br>
-
 # (1) Run a Spark Container
 ```
 $ sudo docker run -it --rm -p 8888:8888 --name spark jupyter/all-spark-notebook:spark-3.5.0
