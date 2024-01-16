@@ -9,8 +9,6 @@
 
 # 1-1. My Python codes for each AWS Instance and which container image should be used
 
->https://zenn.dev/novel_techblog/articles/362fceec01c8b1
-
 |  | Large instance | Small instance * | Container **| Input | Output |
 | --- | --- | --- | --- | --- | --- |
 | **Data Analytics, Transformation and Validation** | [amazon_reviews_parquet.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet.ipynb) | [amazon_reviews_parquet_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet_small.ipynb) | jupyter/all-spark-notebook<br>:spark-3.5.0 | Amazon Cusomer Review as Row Data <br>(parquet file) | Amazon Customer Review as Validated Data <br>(parquet file) | 
@@ -24,7 +22,8 @@
      See it in the link below:
      https://github.com/developer-onizuka/NvidiaDockerOnWSL
 ```
->https://github.com/BandaiNamcoResearchInc/DistilBERT-base-jp/blob/main/docs/GUIDE.md
+>https://github.com/BandaiNamcoResearchInc/DistilBERT-base-jp/blob/main/docs/GUIDE.md<br>
+>https://zenn.dev/novel_techblog/articles/362fceec01c8b1
 <br>
 
 # 2. Data Preparation
