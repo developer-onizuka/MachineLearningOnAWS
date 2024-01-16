@@ -9,14 +9,15 @@
 
 # 1-1. My Python codes for AWS Instance and some small environments
 
-|  | Large instance | Small instance * | Container |
+|  | Large instance | Small instance * | Container **|
 | --- | --- | --- | --- |
 | **Data Analytics, Transformation and Validation** | [amazon_reviews_parquet.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet.ipynb) | [amazon_reviews_parquet_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/amazon_reviews_parquet_small.ipynb) | jupyter/all-spark-notebook:spark-3.5.0 |
 | **Create Training Data** | [BERT-embedding-from-text.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text.ipynb) | [BERT-embedding-from-text_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/BERT-embedding-from-text_small.ipynb) | nvcr.io/nvidia/tensorflow:23.07-tf2-py3 |
 | **Model Training and Model Tuning** | [Fine-Tuning.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning.ipynb) | [Fine-Tuning_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Fine-Tuning_small.ipynb) | nvcr.io/nvidia/tensorflow:23.07-tf2-py3 |
 | **Deploy and Monitoring** | [load_model.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model.ipynb) | [load_model_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model_small.ipynb) | nvcr.io/nvidia/tensorflow:23.07-tf2-py3 |
 ```
-* : Machine whose memory size is less than 32GB
+*  : Machine whose memory size is less than 32GB
+** : You can run these familiar containers on SageMaker as a custom container
 ```
 
 <br>
