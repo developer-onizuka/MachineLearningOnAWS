@@ -17,10 +17,10 @@
 | **Deploy and Monitoring** | [load_model.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model.ipynb) | [load_model_small.ipynb](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/load_model_small.ipynb) | nvcr.io/nvidia/tensorflow:23.07-tf2-py3 |
 ```
 *  : Machine whose memory size is less than 32GB or WSL2 Environment.
+** : You can run these familiar containers on SageMaker as a custom container.
      If you wanna create your own evironment for container, then you can create it so easily on your Windows10 machine.
      See it in the link below:
      https://github.com/developer-onizuka/NvidiaDockerOnWSL
-** : You can run these familiar containers on SageMaker as a custom container.
 ```
 
 # 2. Data Preparation
