@@ -7,7 +7,7 @@
 # 1. Pipeline of Data Science and Workflow
 >![WorkFlow.png](https://github.com/developer-onizuka/Diagrams/blob/main/MachineLearningOnAWS/WorkFlow.drawio.png)
 
-# 1-1. My Python codes for AWS Instance and some small environments
+# 1-1. My Python codes for each AWS Instance and which container image should be used
 
 |  | Large instance | Small instance * | Container **|
 | --- | --- | --- | --- |
