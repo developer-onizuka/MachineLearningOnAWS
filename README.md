@@ -416,6 +416,13 @@ Even if an unknown word (a word not included in the Customer Review Comment, whi
 # 4-2. Release the model as a Service
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint.png" width="640">
 
+You can build the container image for the model and deploy it as a web service.
+```
+$ sudo docker build . -t amazon-predict:1.0.0
+$ sudo docker run -it --rm --gpus all -v /home/vagrant:/mnt --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 --name predict-service amazon-predict:1.0.0
+```
+>![Flask2.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/Flask2.png)
+
 # 4-3. Monitoring
 
 Detect and monitor skew and drift in both features and target distribution of models deployed to production environments. If changes in these distributions are detected, the model's performance may start to degrade, so production data should be used to evaluate the model. Predictive models need to be continually retrained and redeployed to accommodate different drift scenarios.<br>
