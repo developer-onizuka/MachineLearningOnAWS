@@ -47,6 +47,10 @@ def predict(text):
 
 
 @app.route("/", methods=['GET', 'POST'])
+def index():
+    return render_template("index.html")
+
+@app.route("/text", methods=['GET', 'POST'])
 def predict_server():
     try:
         if request.method == 'GET':
