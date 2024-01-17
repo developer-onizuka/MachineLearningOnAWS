@@ -1,7 +1,3 @@
-<%
-    strText = request.form("value");
-%>
-
 <html>
   <head>
     <title>Welcome</title>
@@ -10,10 +6,10 @@
     <h1>Welcome to the Amazon Comment Review-API</h1>
     <form action="/text">
       <p><label>text: </label>
-      <input type="text" name="value" value="<%= strText %>">
+      <input type="text" name="value" value={{ inputText }}>
       <button type="submit" formmethod="get">GET</button>
       <button type="submit" formmethod="post">POST</button></p>
-      <p>{{ value }}</p>
+      <p>{{ predictValue }}</p>
     </form>
   </body>
 </html>

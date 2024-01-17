@@ -56,7 +56,8 @@ def predict_server():
         if request.method == 'GET':
             return predict(request.args.get('value'))
         elif request.method == 'POST':
-            return render_template("index.html", value=predict(request.form['value']))
+            inputText = predict(request.form['value'])
+            return render_template("index.html", predictValue=predict(inputText), inputText)
         else:
             return abort(400)
     except Exception as e:
