@@ -46,13 +46,13 @@ def predict(text):
     return prediction[0]
 
 
-@app.route("/text", method=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def predict_server():
     try:
         if request.method == 'GET':
             return predict(request.args.get('value'))
         elif request.method == 'POST':
-            return render_template("json.html", value=predict(request.form['value']))
+            return render_template("index.html", value=predict(request.form['value']))
         else:
             return abort(400)
     except Exception as e:
