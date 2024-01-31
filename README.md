@@ -386,6 +386,18 @@ $ sudo docker run -it --rm --gpus all -p 8888:8888 -v /home/vagrant:/mnt --ipc=h
 ```
 
 # (3) Training on Jupyter Notebook
+>https://www.tensorflow.org/api_docs/python/tf/keras/Model#fit
+```
+history = model.fit(
+    train_dataset, <----- Target data. If x is a dataset, y should not be specified (since targets will be obtained from x).
+    shuffle=True,
+    epochs=epochs,
+    steps_per_epoch=steps_per_epoch,
+    validation_data=validation_dataset,
+    validation_steps=validation_steps,
+    callbacks=callbacks,
+)
+```
 Run BERT-embedding-from-text.ipynb for Data Preparation and Fine-Tuning.ipynb for Fine Tuning. You can see GPU works for the training as following:
 ```
 +---------------------------------------------------------------------------------------+
