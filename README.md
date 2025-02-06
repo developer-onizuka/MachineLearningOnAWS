@@ -570,6 +570,7 @@ trainer = Trainer(
 # モデルのトレーニング
 trainer.train()
 ```
+ただ、サマリ表示ではモデルの全体的な構造が表示されるようなのですが、PEFTによる内部的な低ランクアダプテーション行列は表示されないとのことです。
 
 
 # 4. Deploy and Monitoring
