@@ -406,10 +406,20 @@ input_ids = tf.keras.layers.Input(shape=(max_seq_length,), name="input_ids", dty
 input_mask = tf.keras.layers.Input(shape=(max_seq_length,), name="input_mask", dtype="int32")
 
 embedding_layer = transformer_model.distilbert(input_ids, attention_mask=input_mask)[0]
+# input_idsを数値ベクトルに変換し、その中から重要な特徴を取り出します。これにより、後続のLSTMレイヤーや全結合レイヤーでテキストの意味やパターンを理解するための基礎データが得られます。
+# 特に[0]は、DistilBERTモデルから得られる複数の出力の中で、埋め込みベクトルを選び出すものです。この埋め込みベクトルは、各トークンが持つ特徴を数値ベクトルとして表現したものです。
+
 X = tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(50, return_sequences=True, dropout=0.1, recurrent_dropout=0.1))(
     embedding_layer
 )
+# embedding_layerは、前の行で、DistilBERTモデルを通じて得られたテキストの特徴です。つまり、テキストが数値のベクトルに変換されたものです。
+# 前方向と逆方向の情報を同時に考慮しながら、LSTMを使ってシーケンスデータの重要な特徴を捉えることを目的としています。
+# モデルは入力テキストの文脈をより深く理解し、後続の分類タスクの精度を向上させることができます。
+
 X = tf.keras.layers.GlobalMaxPool1D()(X)
+# 前の行におけるLSTMレイヤーが生成するシーケンスの各タイムステップの出力は多次元のデータですが、グローバルマックスプーリングを適用することで、シーケンス全体の中で重要な特徴を一つの
+# ベクトルに集約します。後続の全結合層がこのベクトルを効率的に処理し、分類や予測がより正確になります。
+
 X = tf.keras.layers.Dense(50, activation="relu")(X)
 X = tf.keras.layers.Dropout(0.2)(X)
 X = tf.keras.layers.Dense(len(CLASSES), activation="softmax")(X)
