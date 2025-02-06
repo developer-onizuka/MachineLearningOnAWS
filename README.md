@@ -386,16 +386,15 @@ $ sudo docker run -it --rm --gpus all -p 8888:8888 -v /home/vagrant:/mnt --ipc=h
 ```
 
 # (3) Training on Jupyter Notebook
-ここでは、Keras APIを使用して、TransformersモデルをTensorFlowでトレーニングしています。なお、TransformersモデルをKeras APIでトレーニングする場合、データセットをKerasが理解できる形式に変換する必要があります。また、Transformersは、Transformersモデルのトレーニングを最適化したTrainerクラスを提供し、独自のトレーニングループを手動で記述せずにトレーニングを開始しやすくしています。 Trainer APIは、ログ記録、勾配累積、混合精度など、さまざまなトレーニングオプションと機能をサポートしています。これはまた別の機会に実施します。
+ここでは、Keras APIを使用して、TransformersモデルをTensorFlowでトレーニングしています。なお、TransformersモデルをKeras APIでトレーニングする場合、データセットをKerasが理解できる形式に変換する必要があります。Keras APIを使用してファインチューニングする場合は、モデルをロードしてコンパイルすることになります。
+また、Transformersは、Transformersモデルのトレーニングを最適化したTrainerクラスを提供し、独自のトレーニングループを手動で記述せずにトレーニングを開始しやすくしています。 Trainer APIは、ログ記録、勾配累積、混合精度など、さまざまなトレーニングオプションと機能をサポートしています。これはまた別の機会に実施します。
 
 ---
 Here we are training a Transformers model in TensorFlow using the Keras API. Note that when training a Transformers model with the Keras API, the dataset must be converted to a format that Keras can understand.　Transformers also provides a Trainer class that optimizes the training of Transformers models, making it easy to start training without manually writing your own training loops. The Trainer API supports a variety of training options and features, including logging, gradient accumulation, and mixed precision. This will be done on another occasion.
 
 
 
-さて、Keras APIを使用してファインチューニングする場合は、モデルをロードしてコンパイルすることになります。
-
-# モデルの定義
+# (3-1) Define the model
 ここでは、distilbertのオリジナルモデルに対して、今回の分類を目的とした層を追加しています。
 ```
 transformer_model = TFDistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased", config=config)
@@ -415,7 +414,7 @@ X = tf.keras.layers.Dense(len(CLASSES), activation="softmax")(X)
 model = tf.keras.Model(inputs=[input_ids, input_mask], outputs=X)
 ```
 
-# モデルのコンパイル
+# (3-2) Complie the model
 ```
 loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 metric = tf.keras.metrics.SparseCategoricalAccuracy("accuracy")
@@ -423,7 +422,7 @@ optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate, epsilon=epsilo
 model.compile(optimizer=optimizer, loss=loss, metrics=[metric])
 model.summary()
 ```
-# モデルの学習
+# (3-3) Train the model
 ```
 history = model.fit(
     train_dataset, <----- Target data. If x is a dataset, y should not be specified (since targets will be obtained from x).
