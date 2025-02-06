@@ -511,6 +511,67 @@ Check if the model created works well. You just define predict function with mod
 Even if an unknown word (a word not included in the Customer Review Comment, which is treated as training data) is mixed into the sentence you are trying to predict, the inference will still be done because it is trained using the BERT embedding and the corresponding labels. It is possible.<br>
 >仮に、Predictしようとする文章に未知の単語(教師データとして扱われるCustomer Review Comment内に含まれていない単語)が紛れていたとしても、BERT埋め込みと対応するラベルで学習しているため、推論は可能である。
 
+
+# (4) PEFT
+Hugging Faceのtransformersライブラリを使用することで、比較的簡単にモデルをトレーニングおよび評価することができます。そのため、Trainer APIを利用すると良い方法です。
+peft（Parameter Efficient Fine-Tuning）やtransformersライブラリのTrainerを使用すると、より効率的にモデルをファインチューニングできるし、個人的にはそちらのほうが簡単だと思います。
+(3-1)に相当するモデルトレーニングは以下で実行できます。
+
+```
+from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
+from datasets import load_dataset
+from peft import PeftConfig, PeftModel, TaskType
+
+# データセットの読み込み（例としてIMDBデータセットを使用）
+dataset = load_dataset("imdb")
+
+# トークナイザーのロード
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+
+# モデルのロード
+model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=2)
+
+# LoRAの設定
+peft_config = PeftConfig(
+    task_type=TaskType.SEQ_CLS,  # シーケンス分類タスク
+    lora_r=8,  # Rank of low-rank factorization
+    lora_alpha=32,  # Alpha scaling factor
+    lora_dropout=0.1,  # Dropout rate
+)
+
+# PeftModelの作成
+peft_model = PeftModel(model, peft_config)
+
+# データの前処理
+def preprocess_function(examples):
+    return tokenizer(examples["text"], truncation=True, padding="max_length", max_length=512)
+
+encoded_dataset = dataset.map(preprocess_function, batched=True)
+
+# トレーニング引数の設定
+training_args = TrainingArguments(
+    output_dir="./results",
+    evaluation_strategy="epoch",
+    learning_rate=2e-5,
+    per_device_train_batch_size=16,
+    per_device_eval_batch_size=16,
+    num_train_epochs=3,
+    weight_decay=0.01,
+)
+
+# トレーナーの設定
+trainer = Trainer(
+    model=peft_model,
+    args=training_args,
+    train_dataset=encoded_dataset["train"],
+    eval_dataset=encoded_dataset["test"],
+)
+
+# モデルのトレーニング
+trainer.train()
+```
+
+
 # 4. Deploy and Monitoring
 # 4-1. Deploy your customized model to the SageMaker
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint2.png" width="520">
