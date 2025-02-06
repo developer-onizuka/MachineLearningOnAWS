@@ -386,7 +386,43 @@ $ sudo docker run -it --rm --gpus all -p 8888:8888 -v /home/vagrant:/mnt --ipc=h
 ```
 
 # (3) Training on Jupyter Notebook
->https://www.tensorflow.org/api_docs/python/tf/keras/Model#fit
+ここでは、Keras APIを使用して、TransformersモデルをTensorFlowでトレーニングしています。なお、TransformersモデルをKeras APIでトレーニングする場合、データセットをKerasが理解できる形式に変換する必要があります。また、Transformersは、Transformersモデルのトレーニングを最適化したTrainerクラスを提供し、独自のトレーニングループを手動で記述せずにトレーニングを開始しやすくしています。 Trainer APIは、ログ記録、勾配累積、混合精度など、さまざまなトレーニングオプションと機能をサポートしています。これはまた別の機会に実施します。
+
+---
+Here we are training a Transformers model in TensorFlow using the Keras API. Note that when training a Transformers model with the Keras API, the dataset must be converted to a format that Keras can understand.　Transformers also provides a Trainer class that optimizes the training of Transformers models, making it easy to start training without manually writing your own training loops. The Trainer API supports a variety of training options and features, including logging, gradient accumulation, and mixed precision. This will be done on another occasion.
+
+
+Keras APIを使用してファインチューニングする場合は、モデルをロードしてコンパイルすることになります。
+
+- モデルの定義
+  ここでは、distilbertのオリジナルモデルに対して、今回の分類を目的とした層を追加しています。
+```
+transformer_model = TFDistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased", config=config)
+
+input_ids = tf.keras.layers.Input(shape=(max_seq_length,), name="input_ids", dtype="int32")
+input_mask = tf.keras.layers.Input(shape=(max_seq_length,), name="input_mask", dtype="int32")
+
+embedding_layer = transformer_model.distilbert(input_ids, attention_mask=input_mask)[0]
+X = tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(50, return_sequences=True, dropout=0.1, recurrent_dropout=0.1))(
+    embedding_layer
+)
+X = tf.keras.layers.GlobalMaxPool1D()(X)
+X = tf.keras.layers.Dense(50, activation="relu")(X)
+X = tf.keras.layers.Dropout(0.2)(X)
+X = tf.keras.layers.Dense(len(CLASSES), activation="softmax")(X)
+
+model = tf.keras.Model(inputs=[input_ids, input_mask], outputs=X)
+```
+
+- モデルのコンパイル
+```
+loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
+metric = tf.keras.metrics.SparseCategoricalAccuracy("accuracy")
+optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate, epsilon=epsilon)
+model.compile(optimizer=optimizer, loss=loss, metrics=[metric])
+model.summary()
+```
+- モデルの学習
 ```
 history = model.fit(
     train_dataset, <----- Target data. If x is a dataset, y should not be specified (since targets will be obtained from x).
@@ -398,6 +434,8 @@ history = model.fit(
     callbacks=callbacks,
 )
 ```
+>https://www.tensorflow.org/api_docs/python/tf/keras/Model#fit
+
 Run BERT-embedding-from-text.ipynb for Data Preparation and Fine-Tuning.ipynb for Fine Tuning. You can see GPU works for the training as following:
 ```
 +---------------------------------------------------------------------------------------+
