@@ -513,8 +513,7 @@ Even if an unknown word (a word not included in the Customer Review Comment, whi
 
 
 # (4) PEFT
-Hugging Faceのtransformersライブラリを使用することで、比較的簡単にモデルをトレーニングおよび評価することができます。そのため、Trainer APIを利用すると良い方法です。
-peft（Parameter Efficient Fine-Tuning）やtransformersライブラリのTrainerを使用すると、より効率的にモデルをファインチューニングできるし、個人的にはそちらのほうが簡単だと思います。
+Hugging Faceのtransformersライブラリを使用することで、比較的簡単にモデルをトレーニングおよび評価することができます。peft（Parameter Efficient Fine-Tuning）やtransformersライブラリのTrainerを使用することで、より効率的にモデルをファインチューニングできますし、個人的にはそちらのほうが簡単だと思います。
 (3-1)に相当するモデルトレーニングは以下で実行できます。
 
 ```
@@ -523,6 +522,7 @@ from datasets import load_dataset
 from peft import PeftConfig, PeftModel, TaskType
 
 # データセットの読み込み（例としてIMDBデータセットを使用）
+# データセットは、{"text": "This is an example sentence.", "label": 1}のような感じです。
 dataset = load_dataset("imdb")
 
 # トークナイザーのロード
