@@ -396,6 +396,9 @@ Here we are training a Transformers model in TensorFlow using the Keras API. Not
 
 # (3-1) Define the model
 ここでは、distilbertのオリジナルモデルに対して、今回の分類を目的とした層を追加しています。
+GlobalMaxPool1D()については、以下を参照してください。<br>
+>https://www.youtube.com/watch?v=71mubTQ90Uw&t=597s
+>
 ```
 transformer_model = TFDistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased", config=config)
 
