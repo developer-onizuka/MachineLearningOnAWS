@@ -392,10 +392,11 @@ $ sudo docker run -it --rm --gpus all -p 8888:8888 -v /home/vagrant:/mnt --ipc=h
 Here we are training a Transformers model in TensorFlow using the Keras API. Note that when training a Transformers model with the Keras API, the dataset must be converted to a format that Keras can understand.　Transformers also provides a Trainer class that optimizes the training of Transformers models, making it easy to start training without manually writing your own training loops. The Trainer API supports a variety of training options and features, including logging, gradient accumulation, and mixed precision. This will be done on another occasion.
 
 
-Keras APIを使用してファインチューニングする場合は、モデルをロードしてコンパイルすることになります。
 
-- モデルの定義
-  ここでは、distilbertのオリジナルモデルに対して、今回の分類を目的とした層を追加しています。
+さて、Keras APIを使用してファインチューニングする場合は、モデルをロードしてコンパイルすることになります。
+
+# モデルの定義
+ここでは、distilbertのオリジナルモデルに対して、今回の分類を目的とした層を追加しています。
 ```
 transformer_model = TFDistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased", config=config)
 
@@ -414,7 +415,7 @@ X = tf.keras.layers.Dense(len(CLASSES), activation="softmax")(X)
 model = tf.keras.Model(inputs=[input_ids, input_mask], outputs=X)
 ```
 
-- モデルのコンパイル
+# モデルのコンパイル
 ```
 loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 metric = tf.keras.metrics.SparseCategoricalAccuracy("accuracy")
@@ -422,7 +423,7 @@ optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate, epsilon=epsilo
 model.compile(optimizer=optimizer, loss=loss, metrics=[metric])
 model.summary()
 ```
-- モデルの学習
+# モデルの学習
 ```
 history = model.fit(
     train_dataset, <----- Target data. If x is a dataset, y should not be specified (since targets will be obtained from x).
