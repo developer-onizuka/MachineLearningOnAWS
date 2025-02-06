@@ -415,6 +415,9 @@ X = tf.keras.layers.Dropout(0.2)(X)
 X = tf.keras.layers.Dense(len(CLASSES), activation="softmax")(X)
 
 model = tf.keras.Model(inputs=[input_ids, input_mask], outputs=X)
+
+for layer in model.layers[:3]:
+    layer.trainable = not True
 ```
 
 # (3-2) Complie the model
@@ -424,6 +427,41 @@ metric = tf.keras.metrics.SparseCategoricalAccuracy("accuracy")
 optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate, epsilon=epsilon)
 model.compile(optimizer=optimizer, loss=loss, metrics=[metric])
 model.summary()
+```
+
+モデル定義時の、layer.trainable = not Trueが効いて、最初の３つの層のパラメーターは凍結されることになります。この結果、追加された残りの層だけのパラメーター（332,905）だけが計算されることになります。
+
+```
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_ids (InputLayer)         [(None, 64)]         0           []                               
+                                                                                                  
+ input_mask (InputLayer)        [(None, 64)]         0           []                               
+                                                                                                  
+ distilbert (TFDistilBertMainLa  TFBaseModelOutput(l  66362880   ['input_ids[0][0]',              
+ yer)                           ast_hidden_state=(N               'input_mask[0][0]']             
+                                one, 64, 768),                                                    
+                                 hidden_states=None                                               
+                                , attentions=None)                                                
+                                                                                                  
+ bidirectional (Bidirectional)  (None, 64, 100)      327600      ['distilbert[0][0]']             
+                                                                                                  
+ global_max_pooling1d (GlobalMa  (None, 100)         0           ['bidirectional[0][0]']          
+ xPooling1D)                                                                                      
+                                                                                                  
+ dense (Dense)                  (None, 50)           5050        ['global_max_pooling1d[0][0]']   
+                                                                                                  
+ dropout_20 (Dropout)           (None, 50)           0           ['dense[0][0]']                  
+                                                                                                  
+ dense_1 (Dense)                (None, 5)            255         ['dropout_20[0][0]']             
+                                                                                                  
+==================================================================================================
+Total params: 66,695,785
+Trainable params: 332,905
+Non-trainable params: 66,362,880
+__________________________________________________________________________________________________
 ```
 # (3-3) Train the model
 ```
