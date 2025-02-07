@@ -521,9 +521,14 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trai
 from datasets import load_dataset
 from peft import PeftConfig, PeftModel, TaskType
 
-# データセットの読み込み（例としてIMDBデータセットを使用）
-# データセットは、{"text": "This is an example sentence.", "label": 1}のような感じです。
-dataset = load_dataset("imdb")
+# データセットの読み込み
+dataset_files = {
+    "train":["train.csv"],
+    "validation":["validation.csv"],
+    "test":["test.csv"]
+}
+
+dataset = load_dataset("csv", data_files = dataset_files)
 
 # トークナイザーのロード
 tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
