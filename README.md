@@ -387,7 +387,7 @@ $ sudo docker run -it --rm --gpus all -p 8888:8888 -v /home/vagrant:/mnt --ipc=h
 
 # (3) Training on Jupyter Notebook
 ここでは、Keras APIを使用して、TransformersモデルをTensorFlowでトレーニングしています。なお、TransformersモデルをKeras APIでトレーニングする場合、データセットをKerasが理解できる形式に変換する必要があります。Keras APIを使用してファインチューニングする場合は、モデルをロードしてコンパイルすることになります。
-また、Transformersは、Transformersモデルのトレーニングを最適化したTrainerクラスを提供し、独自のトレーニングループを手動で記述せずにトレーニングを開始しやすくしています。 Trainer APIは、ログ記録、勾配累積、混合精度など、さまざまなトレーニングオプションと機能をサポートしています。これはまた別の機会に実施します。
+また、Transformersは、Transformersモデルのトレーニングを最適化したTrainerクラスを提供し、独自のトレーニングループを手動で記述せずにトレーニングを開始しやすくしています。 Trainer APIは、ログ記録、勾配累積、混合精度など、さまざまなトレーニングオプションと機能をサポートしています。これは(4)に記載しています。
 
 ---
 Here we are training a Transformers model in TensorFlow using the Keras API. Note that when training a Transformers model with the Keras API, the dataset must be converted to a format that Keras can understand.　Transformers also provides a Trainer class that optimizes the training of Transformers models, making it easy to start training without manually writing your own training loops. The Trainer API supports a variety of training options and features, including logging, gradient accumulation, and mixed precision. This will be done on another occasion.
