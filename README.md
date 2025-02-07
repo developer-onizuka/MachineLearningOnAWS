@@ -520,15 +520,25 @@ Hugging Faceのtransformersライブラリを使用することで、比較的�
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
 from datasets import load_dataset
 from peft import PeftConfig, PeftModel, TaskType
+import pandas as pd
 
 # データセットの読み込み
+df = pd.read_parquet("/mnt/amazon_reviews_2015.snappy.parquet",columns=["star_rating","review_id","review_body"])
+from sklearn.model_selection import train_test_split
+df_train, df_test = train_test_split, test_size=0.4, random_state=11, strafify=df["star_rating"]
+df_test, df_val = train_test_split, test_size=0.5, random_state=11, strafify=df_test["star_rating"]
+
+df_train.to_parquet("./train.parquet", index=Flase)
+df_val.to_parquet("./validation.parquet", index=Flase)
+df_test.to_parquet("./test.parquet", index=Flase)
+
 dataset_files = {
-    "train":["train.csv"],
-    "validation":["validation.csv"],
-    "test":["test.csv"]
+    "train":["train.parquet"],
+    "validation":["validation.parquet"],
+    "test":["test.parquet"]
 }
 
-dataset = load_dataset("csv", data_files = dataset_files)
+dataset = load_dataset("parquet", data_files = dataset_files)
 
 # トークナイザーのロード
 tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
