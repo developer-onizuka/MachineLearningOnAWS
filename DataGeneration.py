@@ -48,7 +48,7 @@ def main():
     ]
 
 num_comments = 10
-all_commnets = templates_5 + templates_4 + templates_3 + templates_2 + templates_1
+all_comments = templates_5 + templates_4 + templates_3 + templates_2 + templates_1
 
 df = pd.DataFrame(all_comments, colums=["star_rating", "review_id", "review_body"])
 
