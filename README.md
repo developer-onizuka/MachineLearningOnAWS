@@ -523,12 +523,12 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trai
 from datasets import load_dataset
 from peft import PeftConfig, PeftModel, TaskType, LoraConfig
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
 # データセットの読み込み
 df = pd.read_parquet("/mnt/amazon_reviews_2015.snappy.parquet",columns=["star_rating","review_id","review_body"])
-from sklearn.model_selection import train_test_split
 
-df = df.rename(columns={"star_rating":, "labels"})
+df = df.rename(columns={"star_rating": "labels"})
 df["labels"] = df["labels"].apply(lambda x: x - 1)
 
 # データセットの分割
@@ -566,7 +566,7 @@ tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
 model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=5)
 
 # LoRAの設定
-peft_config = PeftConfig(
+peft_config = LoraConfig(
     task_type=TaskType.SEQ_CLS,  # シーケンス分類タスク
     r=8,                         # Rank of low-rank factorization
     lora_alpha=32,               # Alpha scaling factor
@@ -591,12 +591,13 @@ encoded_dataset = dataset.map(preprocess_function, batched=True)
 # トレーニング引数の設定
 training_args = TrainingArguments(
     output_dir="./results",
-    evaluation_strategy="epoch",
+    eval_strategy="epoch",
     learning_rate=2e-5,
     per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
     num_train_epochs=3,
     weight_decay=0.01,
+    label_names=["0","1","2","3","4"],
 )
 
 # トレーナーの設定
