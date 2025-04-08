@@ -48,11 +48,11 @@ def main():
     ]
     num_comments = 10
 
-    comments_5 = generate_commnets(5, templates_5, num=comments)
-    comments_4 = generate_commnets(4, templates_4, num=comments)
-    comments_3 = generate_commnets(3, templates_3, num=comments)
-    comments_2 = generate_commnets(2, templates_2, num=comments)
-    comments_1 = generate_commnets(1, templates_1, num=comments)
+    comments_5 = generate_commnets(5, templates_5, num_comments)
+    comments_4 = generate_commnets(4, templates_4, num_comments)
+    comments_3 = generate_commnets(3, templates_3, num_comments)
+    comments_2 = generate_commnets(2, templates_2, num_comments)
+    comments_1 = generate_commnets(1, templates_1, num_comments)
     
     all_comments = comments_5 + comments_4 + comments_3 + comments_2 + comments_1
 
