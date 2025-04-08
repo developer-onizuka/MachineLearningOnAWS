@@ -517,20 +517,39 @@ Hugging Faceのtransformersライブラリを使用することで、比較的�
 (3-1)に相当するモデルトレーニングは以下で実行できます。
 
 ```
+!pip install peft
+
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
 from datasets import load_dataset
-from peft import PeftConfig, PeftModel, TaskType
+from peft import PeftConfig, PeftModel, TaskType, LoraConfig
 import pandas as pd
 
 # データセットの読み込み
 df = pd.read_parquet("/mnt/amazon_reviews_2015.snappy.parquet",columns=["star_rating","review_id","review_body"])
 from sklearn.model_selection import train_test_split
-df_train, df_test = train_test_split, test_size=0.4, random_state=11, strafify=df["star_rating"]
-df_test, df_val = train_test_split, test_size=0.5, random_state=11, strafify=df_test["star_rating"]
 
-df_train.to_parquet("./train.parquet", index=Flase)
-df_val.to_parquet("./validation.parquet", index=Flase)
-df_test.to_parquet("./test.parquet", index=Flase)
+df = df.rename(columns={"star_rating":, "labels"})
+df["labels"] = df["labels"].apply(lambda x: x - 1)
+
+# データセットの分割
+df_train, df_test = train_test_split(
+    df,
+    test_size=0.4,
+    random_state=11,
+    stratify=df["labels"]
+)
+
+df_test, df_val = train_test_split(
+    df,
+    test_size=0.5,
+    random_state=11,
+    stratify=df["labels"]
+)
+
+# データセットの保存
+df_train.to_parquet("./train.parquet", index=False)
+df_val.to_parquet("./validation.parquet", index=False)
+df_test.to_parquet("./test.parquet", index=False)
 
 dataset_files = {
     "train":["train.parquet"],
@@ -544,14 +563,15 @@ dataset = load_dataset("parquet", data_files = dataset_files)
 tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
 
 # モデルのロード
-model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=2)
+model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=5)
 
 # LoRAの設定
 peft_config = PeftConfig(
     task_type=TaskType.SEQ_CLS,  # シーケンス分類タスク
-    lora_r=8,  # Rank of low-rank factorization
-    lora_alpha=32,  # Alpha scaling factor
-    lora_dropout=0.1,  # Dropout rate
+    r=8,                         # Rank of low-rank factorization
+    lora_alpha=32,               # Alpha scaling factor
+    lora_dropout=0.1,            # Dropout rate
+    target_modules=["q_lin"]
 )
 
 # PeftModelの作成
@@ -559,7 +579,12 @@ peft_model = PeftModel(model, peft_config)
 
 # データの前処理
 def preprocess_function(examples):
-    return tokenizer(examples["text"], truncation=True, padding="max_length", max_length=512)
+    return tokenizer(
+        examples["review_body"], # 必要なテキストカラムを指定
+        truncation=True,
+        padding="max_length",
+        max_length=512
+    )
 
 encoded_dataset = dataset.map(preprocess_function, batched=True)
 
