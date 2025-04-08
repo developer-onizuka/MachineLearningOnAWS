@@ -61,5 +61,5 @@ def main():
     df.to_parquet('amazon_reviews_2015_small.snappy.parquet', engine='pyarrow', index=False)
     print("Data has been saved to 'amazon_reviews_2015_small.snappy.parquet'")
 
-if __main__ == "__main__":
+if __name__ == "__main__":
     main()
