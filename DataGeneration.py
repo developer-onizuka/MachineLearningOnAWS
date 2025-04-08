@@ -47,7 +47,8 @@ def main():
         "Regret buying this, can't recommend at all."
     ]
 
-num_comments = comments_5 + comments_4 + comments_3 + comments_2 + comments_1
+num_comments = 10
+all_commnets = comments_5 + comments_4 + comments_3 + comments_2 + comments_1
 
 df = pd.DataFrame(all_comments, colums=["star_rating", "review_id", "review_body"])
 
