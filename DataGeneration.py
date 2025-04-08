@@ -56,7 +56,7 @@ def main():
     
     all_comments = comments_5 + comments_4 + comments_3 + comments_2 + comments_1
 
-    df = pd.DataFrame(all_comments, colums=["star_rating", "review_id", "review_body"])
+    df = pd.DataFrame(all_comments, columns=["star_rating", "review_id", "review_body"])
 
     df.to_parquet('amazon_reviews_2015_small.snappy.parquet', engine='pyarrow', index=False)
     print("Data has been saved to 'amazon_reviews_2015_small.snappy.parquet'")
