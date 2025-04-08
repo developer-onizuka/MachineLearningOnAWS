@@ -610,8 +610,7 @@ trainer = Trainer(
 # モデルのトレーニング
 trainer.train()
 ```
-ただ、サマリ表示ではモデルの全体的な構造が表示されるようなのですが、PEFTによる内部的な低ランクアダプテーション行列は表示されないとのことです。
-
+ただ、サマリ表示ではモデルの全体的な構造が表示されるようなのですが、PEFTによる内部的な低ランクアダプテーション行列は表示されないとのことです。また、このコードでは、GPUを使用するかどうかの指定は明示的に行われていません。しかし、transformersライブラリのTrainerは、自動的にGPUを検出し、利用可能ならば使用することになります。
 
 # 4. Deploy and Monitoring
 # 4-1. Deploy your customized model to the SageMaker
