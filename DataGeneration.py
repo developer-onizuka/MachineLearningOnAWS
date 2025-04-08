@@ -6,7 +6,7 @@ def generate_commnets(rating, templates, count):
     comments = []
     for _ in range(count):
         comment_body = random.choice(templates)
-        comment = [rating, str(uuid.uuid4()), commnet_body]
+        comment = [rating, str(uuid.uuid4()), comment_body]
         comments.append(comment)
     return comments
 
