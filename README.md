@@ -613,6 +613,44 @@ trainer.train()
 ```
 ただ、サマリ表示ではモデルの全体的な構造が表示されるようなのですが、PEFTによる内部的な低ランクアダプテーション行列は表示されないとのことです。また、このコードでは、GPUを使用するかどうかの指定は明示的に行われていません。しかし、transformersライブラリのTrainerは、自動的にGPUを検出し、利用可能ならば使用することになります。
 
+```
+# モデルとトークナイザーの保存
+peft_model.save_pretrained("./saved_model")
+tokenizer.save_pretrained("./saved_model")
+
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from peft import PeftModel
+
+# モデルとトークナイザーのロード
+tokenizer = AutoTokenizer.from_pretrained("./saved_model")
+base_model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=5)
+peft_model = PeftModel.from_pretrained(base_model, "./saved_model")
+
+peft_model.eval()  # 評価モードに変更
+
+import torch
+
+def predict(text):
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding="max_length", max_length=512)
+    
+    # GPUを使用する場合
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    peft_model.to(device)
+    inputs = {key: value.to(device) for key, value in inputs.items()}
+
+    with torch.no_grad():
+        outputs = peft_model(**inputs)
+
+    predicted_class = torch.argmax(outputs.logits, dim=1).item()
+    return predicted_class + 1  # ラベルを元の評価スケールに変換
+
+# 推論のテスト
+text = "This product is amazing! I highly recommend it."
+predicted_label = predict(text)
+print(f"Predicted Rating: {predicted_label}")
+```
+
+
 # 4. Deploy and Monitoring
 # 4-1. Deploy your customized model to the SageMaker
 ><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/SageMakerEndpoint2.png" width="520">
