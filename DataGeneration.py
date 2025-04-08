@@ -47,7 +47,14 @@ def main():
         "Regret buying this, can't recommend at all."
     ]
     num_comments = 10
-    all_comments = templates_5 + templates_4 + templates_3 + templates_2 + templates_1
+
+    comments_5 = generate_commnets(5, templates_5, num=comments)
+    comments_4 = generate_commnets(4, templates_4, num=comments)
+    comments_3 = generate_commnets(3, templates_3, num=comments)
+    comments_2 = generate_commnets(2, templates_2, num=comments)
+    comments_1 = generate_commnets(1, templates_1, num=comments)
+    
+    all_comments = comments_5 + comments_4 + comments_3 + comments_2 + comments_1
 
 df = pd.DataFrame(all_comments, colums=["star_rating", "review_id", "review_body"])
 
