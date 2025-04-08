@@ -46,9 +46,8 @@ def main():
         "Not as described, extremely poor quality.",
         "Regret buying this, can't recommend at all."
     ]
-
-num_comments = 10
-all_comments = templates_5 + templates_4 + templates_3 + templates_2 + templates_1
+    num_comments = 10
+    all_comments = templates_5 + templates_4 + templates_3 + templates_2 + templates_1
 
 df = pd.DataFrame(all_comments, colums=["star_rating", "review_id", "review_body"])
 
