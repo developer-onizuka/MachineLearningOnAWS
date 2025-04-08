@@ -615,39 +615,38 @@ trainer.train()
 
 ```
 # モデルとトークナイザーの保存
-peft_model.save_pretrained("./saved_model")
-tokenizer.save_pretrained("./saved_model")
+peft_model.save_pretrained("./myModels")
+tokenizer.save_pretrained("./myModels")
 
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from peft import PeftModel
 
-# モデルとトークナイザーのロード
-tokenizer = AutoTokenizer.from_pretrained("./saved_model")
-base_model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=5)
-peft_model = PeftModel.from_pretrained(base_model, "./saved_model")
+# 保存したモデルを読み込む
+model = DistilBertForSequenceClassfication.from_pretrained("./myModels")
+tokenizer = AutoTokenizer.from_pretrained("./myModels")
 
-peft_model.eval()  # 評価モードに変更
+# 推論用のテキスト
+texts = "Great product!"
+
+# トークン化
+inputs = tokenizer(
+    texts,
+    truncation=True,
+    padding=True,
+    max_length=512,
+    return_tensors="pt"
+)
+
+outputs = model(**inputs)
+
+logits = outputs.logits
 
 import torch
+probabilities = torch.nn.functional.softmax(logits, dim=-1)
 
-def predict(text):
-    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding="max_length", max_length=512)
-    
-    # GPUを使用する場合
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    peft_model.to(device)
-    inputs = {key: value.to(device) for key, value in inputs.items()}
+predicted_labels = torch.argmax(probabilities, dim=-1)
 
-    with torch.no_grad():
-        outputs = peft_model(**inputs)
-
-    predicted_class = torch.argmax(outputs.logits, dim=1).item()
-    return predicted_class + 1  # ラベルを元の評価スケールに変換
-
-# 推論のテスト
-text = "This product is amazing! I highly recommend it."
-predicted_label = predict(text)
-print(f"Predicted Rating: {predicted_label}")
+print(predicted_labels)
 ```
 
 
